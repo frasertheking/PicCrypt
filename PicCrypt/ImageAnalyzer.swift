@@ -17,10 +17,12 @@ extension UIImage {
         var countX : Int = 0
         var countY : Int = 0
         
-        while (countX < self.cgImage!.width / 50) {
-            while (countY < self.cgImage!.height / 50) {
-                //print("X \(countX) Y \(countY)")
-                result.add(self.getPixelColor(pos: CGPoint(x: countX * 50, y: countY * 50)))
+        let amount = self.cgImage!.width == 500 ? 50 : 25
+        let offset = self.cgImage!.width == 500 ? 25 : 12
+        
+        while (countX < self.cgImage!.width / amount) {
+            while (countY < self.cgImage!.height / amount) {
+                result.add(self.getPixelColor(pos: CGPoint(x: countX * amount + offset, y: countY * amount + offset)))
                 countY += 1
             }
             countX += 1
