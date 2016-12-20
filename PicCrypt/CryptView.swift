@@ -24,32 +24,50 @@ class CryptView: UIView {
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
-        genericInit()
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        genericInit()
-    }
-    
-    func genericInit() {
-//        self.layer.borderWidth = 1
-//        self.layer.borderColor = UIColor.black.cgColor
     }
     
     func updatePattern(message: String) {
 
+        for view in self.subviews {
+            view.removeFromSuperview()
+        }
+        
         var offsetX: Int = 0
         var offsetY: Int = 0
         for char in message.characters {
             let squareView = UIView(frame: CGRect(x: 25*offsetX, y: 25*offsetY, width: 25, height: 25))
             squareView.backgroundColor = CharColor.charToColor(character: "\(char)")
+            squareView.tag = offsetX + offsetY
+            squareView.alpha = 0
+            squareView.transform = CGAffineTransform(scaleX: 0.01, y: 0.01)
+
             self.addSubview(squareView)
             offsetX += 1
             if (offsetX == 10) {
                 offsetY += 1
                 offsetX = 0
             }
+        }
+        showGrid()
+    }
+
+    func showGrid() {
+        
+        for grid in self.subviews {
+            let randDelay = CGFloat(Float(arc4random()) / Float(UINT32_MAX))
+
+            UIView.animate(withDuration: 0.2, delay: TimeInterval(randDelay), options: UIViewAnimationOptions(rawValue: 0), animations: {
+                grid.alpha = 1
+                grid.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
+            }, completion: { finish in
+                UIView.animate(withDuration: 0.2){
+                    grid.transform = CGAffineTransform(scaleX: 1, y: 1)
+                }
+            })
         }
     }
     

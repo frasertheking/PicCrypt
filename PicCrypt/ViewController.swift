@@ -8,14 +8,25 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate {
 
     @IBOutlet var cryptView: CryptView?
     @IBOutlet var messageLabel: UILabel?
+    @IBOutlet var inputTextView: UITextView?
     var picker : UIImagePickerController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.inputTextView?.delegate = self
+        self.hideKeyboardWhenTappedAround()
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        self.cryptView?.text = textView.text.lowercased()
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        textView.text = ""
     }
     
     @IBAction func takeScreenshot(sender: UIButton) {
@@ -84,6 +95,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return newImage!
+    }
+}
+
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
     }
 }
 

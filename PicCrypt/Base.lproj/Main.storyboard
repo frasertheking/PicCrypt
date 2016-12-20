@@ -6,6 +6,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,7 +24,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a1g-mH-Gje" customClass="CryptView" customModule="PicCrypt" customModuleProvider="target">
-                                <rect key="frame" x="62.5" y="208.5" width="250" height="250"/>
+                                <rect key="frame" x="62.5" y="175" width="250" height="250"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="9Wf-Rs-tG2"/>
@@ -47,40 +49,54 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rm2-NU-601">
-                                <rect key="frame" x="16" y="50" width="343" height="30"/>
+                                <rect key="frame" x="16" y="36" width="343" height="30"/>
                                 <state key="normal" title="Take Picture"/>
                                 <connections>
                                     <action selector="takePictureWithCameraWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oDW-ei-3BD"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vBS-HT-zBw">
-                                <rect key="frame" x="20" y="478.5" width="335" height="0.0"/>
+                                <rect key="frame" x="20" y="445" width="335" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="abcdefghijklmnopqrstuvwxyz now i know my abcs next time wont you sing with me please fraser scripted" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="CtZ-So-D9j">
+                                <rect key="frame" x="36" y="75" width="303" height="80"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="ghI-wq-qmt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="a1g-mH-Gje" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="CxE-BV-aSd"/>
+                            <constraint firstItem="CtZ-So-D9j" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="30z-7i-RuO"/>
+                            <constraint firstItem="a1g-mH-Gje" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="0.9" id="CxE-BV-aSd"/>
                             <constraint firstAttribute="trailing" secondItem="vBS-HT-zBw" secondAttribute="trailing" constant="20" id="EIQ-cx-Ka1"/>
                             <constraint firstItem="rm2-NU-601" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="HEf-Ps-hOw"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="gTs-Ow-BPE" secondAttribute="bottom" constant="20" id="Lzz-qL-PMg"/>
                             <constraint firstItem="a1g-mH-Gje" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NRD-it-Z95"/>
+                            <constraint firstItem="a1g-mH-Gje" firstAttribute="top" secondItem="CtZ-So-D9j" secondAttribute="bottom" constant="20" id="OUR-zf-LC5"/>
                             <constraint firstItem="gTs-Ow-BPE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Vje-KK-eCI"/>
-                            <constraint firstItem="rm2-NU-601" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="30" id="Yom-eh-afQ"/>
+                            <constraint firstItem="rm2-NU-601" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="16" id="Yom-eh-afQ"/>
                             <constraint firstItem="vBS-HT-zBw" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="fCq-qN-mwg"/>
                             <constraint firstItem="vBS-HT-zBw" firstAttribute="top" secondItem="a1g-mH-Gje" secondAttribute="bottom" constant="20" id="qia-a4-uhO"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="CtZ-So-D9j" secondAttribute="trailing" constant="20" id="rkT-w2-ieJ"/>
                             <constraint firstAttribute="trailing" secondItem="rm2-NU-601" secondAttribute="trailing" constant="16" id="v2a-dN-mOg"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="cryptView" destination="a1g-mH-Gje" id="uZM-RY-S1I"/>
+                        <outlet property="inputTextView" destination="CtZ-So-D9j" id="kn7-LT-Kb6"/>
                         <outlet property="messageLabel" destination="vBS-HT-zBw" id="t6t-i3-vKe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="32.799999999999997" y="37.331334332833585"/>
         </scene>
     </scenes>
 </document>
