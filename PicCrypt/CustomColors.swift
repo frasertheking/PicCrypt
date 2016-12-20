@@ -13,13 +13,13 @@ class CustomColors {
     static let aColor: UIColor = UIColor(red: 0/255, green: 0/255, blue: 180/255, alpha: 1);
     static let bColor: UIColor = UIColor(red: 175/255, green: 13/255, blue: 102/255, alpha: 1);
     static let cColor: UIColor = UIColor(red: 146/255, green: 248/255, blue: 70/255, alpha: 1);
-    static let dColor: UIColor = UIColor(red: 255/255, green: 200/255, blue: 47/255, alpha: 1);
-    static let eColor: UIColor = UIColor(red: 255/255, green: 118/255, blue: 0/255, alpha: 1);
+    static let dColor: UIColor = UIColor(red: 27/255, green: 210/255, blue: 235/255, alpha: 1);
+    static let eColor: UIColor = UIColor(red: 240/255, green: 125/255, blue: 10/255, alpha: 1);
     static let fColor: UIColor = UIColor(red: 185/255, green: 185/255, blue: 185/255, alpha: 1);
     static let gColor: UIColor = UIColor(red: 235/255, green: 235/255, blue: 222/255, alpha: 1);
     static let hColor: UIColor = UIColor(red: 100/255, green: 100/255, blue: 100/255, alpha: 1);
     static let iColor: UIColor = UIColor(red: 255/255, green: 255/255, blue: 0/255, alpha: 1);
-    static let jColor: UIColor = UIColor(red: 55/255, green: 19/255, blue: 112/255, alpha: 1);
+    static let jColor: UIColor = UIColor(red: 75/255, green: 55/255, blue: 144/255, alpha: 1);
     static let kColor: UIColor = UIColor(red: 255/255, green: 255/255, blue: 150/255, alpha: 1);
     static let lColor: UIColor = UIColor(red: 202/255, green: 62/255, blue: 94/255, alpha: 1);
     static let mColor: UIColor = UIColor(red: 205/255, green: 145/255, blue: 63/255, alpha: 1);
