@@ -11,30 +11,34 @@ import UIKit
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet var cryptView: CryptView?
-    let image = UIImagePickerController()
+    @IBOutlet var messageLabel: UILabel?
+    var picker : UIImagePickerController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        image.delegate = self
     }
     
     @IBAction func takeScreenshot(sender: UIButton) {
+        self.messageLabel?.text = ""
         let image = cryptView?.takeScreenShot()
         let colorArray = image?.colorArray()
         
-      //  print(CharColor.colorToChar(color: (image?.getPixelColor(pos: CGPoint(x: 10, y: 10)))!))
-        
+        var messageString : String = ""
         for color in colorArray! {
             let closeColor = CustomColors.getClosestColor(color: color)
+            messageString = messageString + CharColor.colorToChar(color: closeColor)
             print(CharColor.colorToChar(color: closeColor), terminator:"")
         }
+        self.messageLabel?.text = messageString
     }
     
     @IBAction func takePictureWithCamera(sender: UIButton) {
-        image.navigationBar.tintColor = UIColor.white
-        image.sourceType = UIImagePickerControllerSourceType.camera
-        image.allowsEditing = false
-        image.cameraViewTransform = image.cameraViewTransform.translatedBy(x: 0, y: 44);
+        picker = UIImagePickerController()
+        picker?.delegate = self
+        picker?.navigationBar.tintColor = UIColor.white
+        picker?.sourceType = UIImagePickerControllerSourceType.camera
+        picker?.allowsEditing = false
+        picker?.cameraViewTransform = (picker?.cameraViewTransform.translatedBy(x: 0, y: 44))!;
 
         let overlayView: UIView = UIView(frame: CGRect(x: (self.view.frame.size.width / 2 - 125), y: (self.view.frame.size.height / 2 - 125), width: 250, height: 250))
         overlayView.layer.cornerRadius = 5
@@ -42,8 +46,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         overlayView.layer.borderColor = UIColor.red.cgColor
         overlayView.layer.borderWidth = 1
         
-        image.cameraOverlayView = overlayView
-        self.present(image, animated: true, completion: nil)
+        picker?.cameraOverlayView = overlayView
+        self.messageLabel?.text = ""
+        self.present(picker!, animated: true, completion: nil)
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
@@ -51,16 +56,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             let scaledImage: UIImage = resizeImage(image: pickedImage, newWidth: self.view.frame.size.width)
             let rect = CGRect(x: (self.view.frame.size.width / 2 - 125), y: (self.view.frame.size.height / 2 - 210), width: 250, height: 250)
             let selectedImage : UIImage = cropImage(image: scaledImage, toRect: rect)
-            let imageView = UIImageView(image: selectedImage)
-            imageView.frame = CGRect(x: 50, y: 400, width: 250, height: 250)
-            self.view.addSubview(imageView)
             
+            var messageString : String = ""
             let colorArray = selectedImage.colorArray()
             for color in colorArray {
                 let closeColor = CustomColors.getClosestColor(color: color)
-               // print(CustomColors.getHexString(color: color))
+                messageString = messageString + CharColor.colorToChar(color: closeColor)
                 print(CharColor.colorToChar(color: closeColor), terminator:"")
             }
+            self.messageLabel?.text = messageString
         }
         
         picker.dismiss(animated: true, completion: nil);

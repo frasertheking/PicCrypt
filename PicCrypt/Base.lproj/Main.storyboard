@@ -33,6 +33,10 @@
                                         <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="string" keyPath="text" value="abcdefghijklmnopqrstuvwxyz now i know my abcs next time wont you sing with me please fraser scripted"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gTs-Ow-BPE">
@@ -49,20 +53,30 @@
                                     <action selector="takePictureWithCameraWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oDW-ei-3BD"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vBS-HT-zBw">
+                                <rect key="frame" x="20" y="478.5" width="335" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="a1g-mH-Gje" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="CxE-BV-aSd"/>
+                            <constraint firstAttribute="trailing" secondItem="vBS-HT-zBw" secondAttribute="trailing" constant="20" id="EIQ-cx-Ka1"/>
                             <constraint firstItem="rm2-NU-601" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="HEf-Ps-hOw"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="gTs-Ow-BPE" secondAttribute="bottom" constant="20" id="Lzz-qL-PMg"/>
                             <constraint firstItem="a1g-mH-Gje" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NRD-it-Z95"/>
                             <constraint firstItem="gTs-Ow-BPE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Vje-KK-eCI"/>
                             <constraint firstItem="rm2-NU-601" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="30" id="Yom-eh-afQ"/>
+                            <constraint firstItem="vBS-HT-zBw" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="fCq-qN-mwg"/>
+                            <constraint firstItem="vBS-HT-zBw" firstAttribute="top" secondItem="a1g-mH-Gje" secondAttribute="bottom" constant="20" id="qia-a4-uhO"/>
                             <constraint firstAttribute="trailing" secondItem="rm2-NU-601" secondAttribute="trailing" constant="16" id="v2a-dN-mOg"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="cryptView" destination="a1g-mH-Gje" id="uZM-RY-S1I"/>
+                        <outlet property="messageLabel" destination="vBS-HT-zBw" id="t6t-i3-vKe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
