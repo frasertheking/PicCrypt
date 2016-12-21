@@ -44,7 +44,14 @@ class CryptView: UIView {
             squareView.tag = offsetX + offsetY
             squareView.alpha = 0
             squareView.transform = CGAffineTransform(scaleX: 0.01, y: 0.01)
-
+            let ringView = UIView(frame: CGRect(x: 0, y: 0, width: 25, height: 25))
+            ringView.layer.borderWidth = 5
+            
+            if (char == "0" || char == "1" || char == "2" || char == "3" || char == "4" || char == "5" || char == "6" || char == "7" || char == "8" || char == "9") {
+                ringView.layer.borderColor = UIColor.white.cgColor
+                squareView.addSubview(ringView)
+            }
+            
             self.addSubview(squareView)
             offsetX += 1
             if (offsetX == 10) {

@@ -15,10 +15,13 @@
 		43758A471DFC696200BE6D3B /* CryptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43758A461DFC696200BE6D3B /* CryptView.swift */; };
 		43758A491DFC733100BE6D3B /* CharColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43758A481DFC733100BE6D3B /* CharColor.swift */; };
 		43758A4B1DFCF40D00BE6D3B /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43758A4A1DFCF40D00BE6D3B /* CustomColors.swift */; };
+		438303A71E0A235900BAC1BB /* Crypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438303A61E0A235900BAC1BB /* Crypto.swift */; };
 		43AB95111E036890006E74C6 /* ImageAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AB95101E036890006E74C6 /* ImageAnalyzer.swift */; };
+		5DD971F0DD95921EB3BEAD5C /* Pods_PicCrypt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67F45A0240E4F7431ECB6DD9 /* Pods_PicCrypt.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		01C66D4558ED024E9F42E61A /* Pods-PicCrypt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PicCrypt.release.xcconfig"; path = "Pods/Target Support Files/Pods-PicCrypt/Pods-PicCrypt.release.xcconfig"; sourceTree = "<group>"; };
 		43758A311DFC68A700BE6D3B /* PicCrypt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PicCrypt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43758A341DFC68A700BE6D3B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43758A361DFC68A700BE6D3B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -29,7 +32,10 @@
 		43758A461DFC696200BE6D3B /* CryptView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CryptView.swift; sourceTree = "<group>"; };
 		43758A481DFC733100BE6D3B /* CharColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharColor.swift; sourceTree = "<group>"; };
 		43758A4A1DFCF40D00BE6D3B /* CustomColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
+		438303A61E0A235900BAC1BB /* Crypto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Crypto.swift; sourceTree = "<group>"; };
 		43AB95101E036890006E74C6 /* ImageAnalyzer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageAnalyzer.swift; sourceTree = "<group>"; };
+		67F45A0240E4F7431ECB6DD9 /* Pods_PicCrypt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PicCrypt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		702AA35CB2C96FE957E8E882 /* Pods-PicCrypt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PicCrypt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PicCrypt/Pods-PicCrypt.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,17 +43,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DD971F0DD95921EB3BEAD5C /* Pods_PicCrypt.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		09FC226FDFD521DA5FDA870E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				702AA35CB2C96FE957E8E882 /* Pods-PicCrypt.debug.xcconfig */,
+				01C66D4558ED024E9F42E61A /* Pods-PicCrypt.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		43758A281DFC68A700BE6D3B = {
 			isa = PBXGroup;
 			children = (
 				43758A331DFC68A700BE6D3B /* PicCrypt */,
 				43758A321DFC68A700BE6D3B /* Products */,
+				09FC226FDFD521DA5FDA870E /* Pods */,
+				7BDA748EB719B7B1CD36AE9A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,6 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				43758A341DFC68A700BE6D3B /* AppDelegate.swift */,
+				438303A61E0A235900BAC1BB /* Crypto.swift */,
 				43758A4A1DFCF40D00BE6D3B /* CustomColors.swift */,
 				43758A481DFC733100BE6D3B /* CharColor.swift */,
 				43758A461DFC696200BE6D3B /* CryptView.swift */,
@@ -76,6 +95,14 @@
 			path = PicCrypt;
 			sourceTree = "<group>";
 		};
+		7BDA748EB719B7B1CD36AE9A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				67F45A0240E4F7431ECB6DD9 /* Pods_PicCrypt.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -83,9 +110,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 43758A431DFC68A700BE6D3B /* Build configuration list for PBXNativeTarget "PicCrypt" */;
 			buildPhases = (
+				C55C7D9C9A392727E3CC17D7 /* [CP] Check Pods Manifest.lock */,
 				43758A2D1DFC68A700BE6D3B /* Sources */,
 				43758A2E1DFC68A700BE6D3B /* Frameworks */,
 				43758A2F1DFC68A700BE6D3B /* Resources */,
+				9790D79B77F6492233BA75DE /* [CP] Embed Pods Frameworks */,
+				6CA742DCE9E4141C8A6F91B6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -144,6 +174,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6CA742DCE9E4141C8A6F91B6 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PicCrypt/Pods-PicCrypt-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9790D79B77F6492233BA75DE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PicCrypt/Pods-PicCrypt-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C55C7D9C9A392727E3CC17D7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		43758A2D1DFC68A700BE6D3B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -154,6 +232,7 @@
 				43758A4B1DFCF40D00BE6D3B /* CustomColors.swift in Sources */,
 				43758A371DFC68A700BE6D3B /* ViewController.swift in Sources */,
 				43758A351DFC68A700BE6D3B /* AppDelegate.swift in Sources */,
+				438303A71E0A235900BAC1BB /* Crypto.swift in Sources */,
 				43758A491DFC733100BE6D3B /* CharColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -275,6 +354,7 @@
 		};
 		43758A441DFC68A700BE6D3B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 702AA35CB2C96FE957E8E882 /* Pods-PicCrypt.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = WQ4X98Q4GE;
@@ -288,6 +368,7 @@
 		};
 		43758A451DFC68A700BE6D3B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 01C66D4558ED024E9F42E61A /* Pods-PicCrypt.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = WQ4X98Q4GE;

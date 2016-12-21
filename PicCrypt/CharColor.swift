@@ -65,6 +65,26 @@ class CharColor {
             return CustomColors.yColor
         case "z":
             return CustomColors.zColor
+        case "0":
+            return CustomColors.color0
+        case "1":
+            return CustomColors.color1
+        case "2":
+            return CustomColors.color2
+        case "3":
+            return CustomColors.color3
+        case "4":
+            return CustomColors.color4
+        case "5":
+            return CustomColors.color5
+        case "6":
+            return CustomColors.color6
+        case "7":
+            return CustomColors.color7
+        case "8":
+            return CustomColors.color8
+        case "9":
+            return CustomColors.color9
         case " ":
             return CustomColors.spColor
         default:
@@ -126,6 +146,26 @@ class CharColor {
             return "y"
         case CustomColors.zColor:
             return "z"
+        case CustomColors.color0:
+            return "0"
+        case CustomColors.color1:
+            return "1"
+        case CustomColors.color2:
+            return "2"
+        case CustomColors.color3:
+            return "3"
+        case CustomColors.color4:
+            return "4"
+        case CustomColors.color5:
+            return "5"
+        case CustomColors.color6:
+            return "6"
+        case CustomColors.color7:
+            return "7"
+        case CustomColors.color8:
+            return "8"
+        case CustomColors.color9:
+            return "9"
         case CustomColors.spColor:
             return " "
         case UIColor.white:

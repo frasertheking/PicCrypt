@@ -19,6 +19,27 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         super.viewDidLoad()
         self.inputTextView?.delegate = self
         self.hideKeyboardWhenTappedAround()
+        //self.testEncryption()
+    }
+    
+    func testEncryption() {
+        let message : String = "This is some secret text right here"
+        var cipher : String?
+        
+        do {
+            let temp = try message.aesEncrypt(key: "passwordpassword", iv: "drowssapdrowssap")
+            cipher = temp
+            print(cipher!)
+        } catch {
+            print("Error encoding")
+        }
+        
+        do {
+            let decryptedMessage = try cipher?.aesDecrypt(key: "passwordpassword", iv: "drowssapdrowssap")
+            print(decryptedMessage!)
+        } catch {
+            print("Error decoding")
+        }
     }
     
     func textViewDidChange(_ textView: UITextView) {

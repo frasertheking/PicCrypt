@@ -36,12 +36,24 @@ class CustomColors {
     static let xColor: UIColor = UIColor(red: 0/255, green: 0/255, blue: 74/255, alpha: 1);
     static let yColor: UIColor = UIColor(red: 175/255, green: 200/255, blue: 74/255, alpha: 1);
     static let zColor: UIColor = UIColor(red: 63/255, green: 25/255, blue: 12/255, alpha: 1);
+    static let color0: UIColor = UIColor(red: 25/255, green: 250/255, blue: 34/255, alpha: 1);
+    static let color1: UIColor = UIColor(red: 50/255, green: 22/255, blue: 235/255, alpha: 1);
+    static let color2: UIColor = UIColor(red: 55/255, green: 7/255, blue: 112/255, alpha: 1);
+    static let color3: UIColor = UIColor(red: 100/255, green: 175/255, blue: 66/255, alpha: 1);
+    static let color4: UIColor = UIColor(red: 36/255, green: 150/255, blue: 200/255, alpha: 1);
+    static let color5: UIColor = UIColor(red: 150/255, green: 125/255, blue: 12/255, alpha: 1);
+    static let color6: UIColor = UIColor(red: 175/255, green: 100/255, blue: 144/255, alpha: 1);
+    static let color7: UIColor = UIColor(red: 200/255, green: 75/255, blue: 218/255, alpha: 1);
+    static let color8: UIColor = UIColor(red: 225/255, green: 50/255, blue: 55/255, alpha: 1);
+    static let color9: UIColor = UIColor(red: 250/255, green: 25/255, blue: 160/255, alpha: 1);
     static let spColor: UIColor = UIColor(red: 22/255, green: 47/255, blue: 70/255, alpha: 1);
     
     static let colorArray = [aColor, bColor, cColor, dColor, eColor, fColor, gColor, hColor,
                       iColor, jColor, kColor, lColor, mColor, nColor, oColor, pColor,
                       qColor, rColor, sColor, tColor, uColor, vColor, wColor, xColor,
                       yColor, zColor, spColor]
+    
+    static let numberArray = [color0, color1, color2, color3, color4, color5, color6, color7, color8, color9]
     
     class func getClosestColor(color: UIColor) -> UIColor {
         var min : CGFloat?
