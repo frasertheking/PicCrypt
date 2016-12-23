@@ -97,91 +97,33 @@ class CharColor {
         }
 }
     
-    class func colorToChar(color: UIColor) -> String {
-        switch color {
-        case CustomColors.aColor:
-            return "a"
-        case CustomColors.bColor:
-            return "b"
-        case CustomColors.cColor:
-            return "c"
-        case CustomColors.dColor:
-            return "d"
-        case CustomColors.eColor:
-            return "e"
-        case CustomColors.fColor:
-            return "f"
-        case CustomColors.gColor:
-            return "g"
-        case CustomColors.hColor:
-            return "h"
-        case CustomColors.iColor:
-            return "i"
-        case CustomColors.jColor:
-            return "j"
-        case CustomColors.kColor:
-            return "k"
-        case CustomColors.lColor:
-            return "l"
-        case CustomColors.mColor:
-            return "m"
-        case CustomColors.nColor:
-            return "n"
-        case CustomColors.oColor:
-            return "o"
-        case CustomColors.pColor:
-            return "p"
-        case CustomColors.qColor:
-            return "q"
-        case CustomColors.rColor:
-            return "r"
-        case CustomColors.sColor:
-            return "s"
-        case CustomColors.tColor:
-            return "t"
-        case CustomColors.uColor:
-            return "u"
-        case CustomColors.vColor:
-            return "v"
-        case CustomColors.wColor:
-            return "w"
-        case CustomColors.xColor:
-            return "x"
-        case CustomColors.yColor:
-            return "y"
-        case CustomColors.zColor:
-            return "z"
-        case CustomColors.color0:
-            return "0"
-        case CustomColors.color1:
-            return "1"
-        case CustomColors.color2:
-            return "2"
-        case CustomColors.color3:
-            return "3"
-        case CustomColors.color4:
-            return "4"
-        case CustomColors.color5:
-            return "5"
-        case CustomColors.color6:
-            return "6"
-        case CustomColors.color7:
-            return "7"
-        case CustomColors.color8:
-            return "8"
-        case CustomColors.color9:
-            return "9"
-        case CustomColors.colorPlus:
-            return "+"
-        case CustomColors.colorSlash:
-            return "/"
-        case CustomColors.spColor:
-            return " "
-        case UIColor.white:
-            return ""
-        default:
-            return "?"
+    class func colorToChar(innerColor: UIColor, outerColor: UIColor) -> String {
+        
+        // Number
+        if (outerColor == UIColor.black) {
+            if (innerColor == CustomColors.color0) {
+                return "0"
+            } else if (innerColor == CustomColors.color1) {
+                return "1"
+            } else if (innerColor == CustomColors.color2) {
+                return "2"
+            } else if (innerColor == CustomColors.color3) {
+                return "3"
+            } else if (innerColor == CustomColors.color4) {
+                return "4"
+            } else if (innerColor == CustomColors.color5) {
+                return "5"
+            } else if (innerColor == CustomColors.color6) {
+                return "6"
+            } else if (innerColor == CustomColors.color7) {
+                return "7"
+            } else if (innerColor == CustomColors.color8) {
+                return "8"
+            } else if (innerColor == CustomColors.color9) {
+                return "9"
+            }
         }
+        return "?"
     }
 }
 

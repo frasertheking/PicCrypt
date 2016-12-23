@@ -48,7 +48,7 @@ class CustomColors {
     static let color9: UIColor = UIColor(red: 250/255, green: 25/255, blue: 160/255, alpha: 1);
     static let colorPlus: UIColor = UIColor(red: 44/255, green: 188/255, blue: 240/255, alpha: 1);
     static let colorSlash: UIColor = UIColor(red: 51/255, green: 75/255, blue: 123/255, alpha: 1);
-    static let colorEquals: UIColor = UIColor(red: 208/255, green: 98/255, blue: 16/255, alpha: 1);
+    static let colorEquals: UIColor = UIColor(red: 208/255, green: 98/255, blue: 66/255, alpha: 1);
     static let spColor: UIColor = UIColor(red: 22/255, green: 47/255, blue: 70/255, alpha: 1);
     
     static let colorArray = [aColor, bColor, cColor, dColor, eColor, fColor, gColor, hColor,
@@ -56,13 +56,20 @@ class CustomColors {
                       qColor, rColor, sColor, tColor, uColor, vColor, wColor, xColor,
                       yColor, zColor, spColor]
     
-    static let numberSymbolArray = [color0, color1, color2, color3, color4, color5, color6, color7, color8, color9, colorPlus, colorSlash, colorEquals]
+    static let numberSymbolArray = [color0, color1, color2, color3, color4, color5, color6, color7, color8, color9, colorPlus, colorSlash, colorEquals, spColor]
     
-    class func getClosestColor(color: UIColor) -> UIColor {
+    class func getClosestColor(color: UIColor, number: Bool) -> UIColor {
+        var array = [UIColor]()
+        if number {
+            array = numberSymbolArray
+        } else {
+            array = colorArray
+        }
+        
         var min : CGFloat?
         var closestColor : UIColor?
         var count : Int = 0
-        for letterColor in colorArray {
+        for letterColor in array {
             if (color == UIColor(red: 1, green: 1, blue: 1, alpha: 1)) {
                 return UIColor.white
             }
@@ -79,6 +86,20 @@ class CustomColors {
         }
         
         return closestColor!
+    }
+    
+    class func getOuterColor(color: UIColor) -> UIColor {
+        let components = color.cgColor.components
+        var brightness = (components?[0])! * 299 + (components?[1])! * 587
+        brightness += (components?[2])! * 114
+
+        if brightness / 1000 < 0.3 {
+            return UIColor.black
+        } else if brightness / 1000 > 0.6 {
+            return UIColor.white
+        } else {
+            return UIColor.gray
+        }
     }
     
     class func getHexString(color: UIColor) -> NSString {

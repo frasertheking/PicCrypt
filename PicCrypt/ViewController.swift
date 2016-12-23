@@ -19,11 +19,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         super.viewDidLoad()
         self.inputTextView?.delegate = self
         self.hideKeyboardWhenTappedAround()
-        self.testEncryption()
+       // self.testEncryption()
     }
     
     func testEncryption() {
-        let message : String = "This is some secret text right here fraser is so dang cool omg cool dude lol i am the best the very best like no one ever was"
+        let message : String = "This is some secret text"
         var cipher : String?
         
         do {
@@ -58,9 +58,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         var messageString : String = ""
         for color in colorArray! {
-            let closeColor = CustomColors.getClosestColor(color: color)
-            messageString = messageString + CharColor.colorToChar(color: closeColor)
-            print(CharColor.colorToChar(color: closeColor), terminator:"")
+         //   let closeColor = CustomColors.getClosestColor(color: color)
+           // messageString = messageString + CharColor.colorToChar(color: closeColor)
+           // print(CharColor.colorToChar(color: closeColor), terminator:"")
         }
         self.messageLabel?.text = messageString
     }
@@ -93,9 +93,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             var messageString : String = ""
             let colorArray = selectedImage.colorArray()
             for color in colorArray {
-                let closeColor = CustomColors.getClosestColor(color: color)
-                messageString = messageString + CharColor.colorToChar(color: closeColor)
-                print(CharColor.colorToChar(color: closeColor), terminator:"")
+               // let closeColor = CustomColors.getClosestColor(color: color)
+               // messageString = messageString + CharColor.colorToChar(color: closeColor)
+               // print(CharColor.colorToChar(color: closeColor), terminator:"")
             }
             self.messageLabel?.text = messageString
         }

@@ -33,7 +33,7 @@
                                     <userDefinedRuntimeAttribute type="color" keyPath="viewBackgroundColor">
                                         <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="text" value="abcdefghijklmnopqrstuvwxyz now i know my abcs next time wont you sing with me please fraser scripted"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="text" value="testing 123"/>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
@@ -60,13 +60,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="CtZ-So-D9j">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="testing 123" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="CtZ-So-D9j">
                                 <rect key="frame" x="36" y="83.5" width="303" height="80"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="ghI-wq-qmt"/>
                                 </constraints>
-                                <string key="text">abcdefghijklmnopqrstuvwxyz now i know my abcs next time wont you sing with me please fraser scripted abcdefghiyjtuqyautieoeoeoeoeoeoeoeoeoeoeoeoeo</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>

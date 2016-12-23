@@ -14,6 +14,35 @@ extension UIImage {
     func colorArray() -> [UIColor] {
         let result = NSMutableArray()
         
+        // First get width of number squares
+        var width : Int = 0
+        while (true) {
+            width += 1
+            let color = self.getPixelColor(pos: CGPoint(x: 10, y: 10 + width))
+            if (color == UIColor(red: 0, green: 0, blue: 0, alpha: 1)) {
+                break
+            }
+        }
+        
+        // Now get number of objects
+        var numberResult : String = ""
+        var numCountY : Int = 0
+        width = width + 20
+        let myOffset = width / 2
+        while (true) {
+            let inColor : UIColor = CustomColors.getClosestColor(color: self.getPixelColor(pos: CGPoint(x: width/2, y: width * numCountY + myOffset)), number: true)
+            let outColor : UIColor = CustomColors.getOuterColor(color: self.getPixelColor(pos: CGPoint(x: 3, y: width * numCountY + myOffset)))
+
+            if (CustomColors.getClosestColor(color: inColor, number: true) == CustomColors.spColor) {
+                break
+            }
+            
+            numberResult += CharColor.colorToChar(innerColor: inColor, outerColor: outColor)
+            numCountY += 1
+        }
+        
+        print(numberResult)
+        
         var countX : Int = 0
         var countY : Int = 0
         

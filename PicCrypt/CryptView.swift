@@ -41,19 +41,7 @@ class CryptView: UIView {
         var offsetY: Int = 0
         for char in message.characters {
             let charStr = "\(char)"
-            
-            let x : Double = 300
-            let y : Double = 300
-            let n : Double = Double(messageLen)
-            let px = ceil(sqrt(Double(n * x / y)))
-            var sx : Double
-            if (floor(px * y / x) * px < n) {
-                sx = y / ceil(px*y/x)
-            } else {
-                sx = x / px
-            }
-            
-            let squareSize : Int = Int(floor(sx))
+            let squareSize = getSquareSize(len: messageLen)
             
             let squareView = UIView(frame: CGRect(x: squareSize*offsetX, y: squareSize*offsetY, width: squareSize, height: squareSize))
             squareView.backgroundColor = CharColor.charToColor(character: charStr)
@@ -64,10 +52,10 @@ class CryptView: UIView {
             ringView.layer.borderWidth = 5
             
             if (char == "0" || char == "1" || char == "2" || char == "3" || char == "4" || char == "5" || char == "6" || char == "7" || char == "8" || char == "9") {
-                ringView.layer.borderColor = UIColor.gray.cgColor
+                ringView.layer.borderColor = UIColor.black.cgColor
                 squareView.addSubview(ringView)
             } else if (char == "+" || char == "/") {
-                ringView.layer.borderColor = UIColor.black.cgColor
+                ringView.layer.borderColor = UIColor.gray.cgColor
                 squareView.addSubview(ringView)
             } else if (charStr.isLowercase()) {
                 ringView.layer.borderColor = UIColor.white.cgColor
@@ -82,6 +70,21 @@ class CryptView: UIView {
             }
         }
         showGrid()
+    }
+    
+    func getSquareSize(len: Int) -> Int {
+        let x : Double = 300
+        let y : Double = 300
+        let n : Double = Double(len)
+        let px = ceil(sqrt(Double(n * x / y)))
+        var sx : Double
+        if (floor(px * y / x) * px < n) {
+            sx = y / ceil(px*y/x)
+        } else {
+            sx = x / px
+        }
+        
+        return Int(floor(sx))
     }
 
     func showGrid() {
