@@ -46,6 +46,9 @@ class CustomColors {
     static let color7: UIColor = UIColor(red: 200/255, green: 75/255, blue: 218/255, alpha: 1);
     static let color8: UIColor = UIColor(red: 225/255, green: 50/255, blue: 55/255, alpha: 1);
     static let color9: UIColor = UIColor(red: 250/255, green: 25/255, blue: 160/255, alpha: 1);
+    static let colorPlus: UIColor = UIColor(red: 44/255, green: 188/255, blue: 240/255, alpha: 1);
+    static let colorSlash: UIColor = UIColor(red: 51/255, green: 75/255, blue: 123/255, alpha: 1);
+    static let colorEquals: UIColor = UIColor(red: 208/255, green: 98/255, blue: 16/255, alpha: 1);
     static let spColor: UIColor = UIColor(red: 22/255, green: 47/255, blue: 70/255, alpha: 1);
     
     static let colorArray = [aColor, bColor, cColor, dColor, eColor, fColor, gColor, hColor,
@@ -53,7 +56,7 @@ class CustomColors {
                       qColor, rColor, sColor, tColor, uColor, vColor, wColor, xColor,
                       yColor, zColor, spColor]
     
-    static let numberArray = [color0, color1, color2, color3, color4, color5, color6, color7, color8, color9]
+    static let numberSymbolArray = [color0, color1, color2, color3, color4, color5, color6, color7, color8, color9, colorPlus, colorSlash, colorEquals]
     
     class func getClosestColor(color: UIColor) -> UIColor {
         var min : CGFloat?

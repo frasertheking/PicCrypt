@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2659" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -7,7 +7,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -24,11 +23,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a1g-mH-Gje" customClass="CryptView" customModule="PicCrypt" customModuleProvider="target">
-                                <rect key="frame" x="62.5" y="175" width="250" height="250"/>
+                                <rect key="frame" x="37.5" y="183.5" width="300" height="300"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="250" id="9Wf-Rs-tG2"/>
-                                    <constraint firstAttribute="height" constant="250" id="9Y1-fl-yUE"/>
+                                    <constraint firstAttribute="width" constant="300" id="9Wf-Rs-tG2"/>
+                                    <constraint firstAttribute="height" constant="300" id="9Y1-fl-yUE"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="viewBackgroundColor">
@@ -56,17 +55,18 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vBS-HT-zBw">
-                                <rect key="frame" x="20" y="445" width="335" height="0.0"/>
+                                <rect key="frame" x="20" y="503.5" width="335" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="abcdefghijklmnopqrstuvwxyz now i know my abcs next time wont you sing with me please fraser scripted" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="CtZ-So-D9j">
-                                <rect key="frame" x="36" y="75" width="303" height="80"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="CtZ-So-D9j">
+                                <rect key="frame" x="36" y="83.5" width="303" height="80"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="ghI-wq-qmt"/>
                                 </constraints>
+                                <string key="text">abcdefghijklmnopqrstuvwxyz now i know my abcs next time wont you sing with me please fraser scripted abcdefghiyjtuqyautieoeoeoeoeoeoeoeoeoeoeoeoeo</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -74,7 +74,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="CtZ-So-D9j" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="30z-7i-RuO"/>
-                            <constraint firstItem="a1g-mH-Gje" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="0.9" id="CxE-BV-aSd"/>
+                            <constraint firstItem="a1g-mH-Gje" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="CxE-BV-aSd"/>
                             <constraint firstAttribute="trailing" secondItem="vBS-HT-zBw" secondAttribute="trailing" constant="20" id="EIQ-cx-Ka1"/>
                             <constraint firstItem="rm2-NU-601" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="HEf-Ps-hOw"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="gTs-Ow-BPE" secondAttribute="bottom" constant="20" id="Lzz-qL-PMg"/>

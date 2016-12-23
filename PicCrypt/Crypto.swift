@@ -23,4 +23,14 @@ extension String {
         let decryptedData = Data(decrypted)
         return String(bytes: decryptedData.bytes, encoding: .utf8) ?? "Could not decrypt"
     }
+    
+    func isLowercase() -> Bool {
+        let set = CharacterSet.lowercaseLetters
+        
+        if let scala = UnicodeScalar(self) {
+            return set.contains(scala)
+        } else {
+            return false
+        }
+    }
 }

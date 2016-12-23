@@ -13,7 +13,7 @@ import UIKit
 class CryptView: UIView {
     @IBInspectable var text: String?  {
         didSet {
-            updatePattern(message: text!)
+            updatePattern(message: "\(text!.characters.count) " + text!)
         }
     }
     @IBInspectable var viewBackgroundColor: UIColor? {
@@ -36,25 +36,47 @@ class CryptView: UIView {
             view.removeFromSuperview()
         }
         
+        let messageLen = message.characters.count
         var offsetX: Int = 0
         var offsetY: Int = 0
         for char in message.characters {
-            let squareView = UIView(frame: CGRect(x: 25*offsetX, y: 25*offsetY, width: 25, height: 25))
-            squareView.backgroundColor = CharColor.charToColor(character: "\(char)")
+            let charStr = "\(char)"
+            
+            let x : Double = 300
+            let y : Double = 300
+            let n : Double = Double(messageLen)
+            let px = ceil(sqrt(Double(n * x / y)))
+            var sx : Double
+            if (floor(px * y / x) * px < n) {
+                sx = y / ceil(px*y/x)
+            } else {
+                sx = x / px
+            }
+            
+            let squareSize : Int = Int(floor(sx))
+            
+            let squareView = UIView(frame: CGRect(x: squareSize*offsetX, y: squareSize*offsetY, width: squareSize, height: squareSize))
+            squareView.backgroundColor = CharColor.charToColor(character: charStr)
             squareView.tag = offsetX + offsetY
             squareView.alpha = 0
-            squareView.transform = CGAffineTransform(scaleX: 0.01, y: 0.01)
-            let ringView = UIView(frame: CGRect(x: 0, y: 0, width: 25, height: 25))
+            squareView.layer.masksToBounds = true
+            let ringView = UIView(frame: CGRect(x: 0, y: 0, width: squareSize, height: squareSize))
             ringView.layer.borderWidth = 5
             
             if (char == "0" || char == "1" || char == "2" || char == "3" || char == "4" || char == "5" || char == "6" || char == "7" || char == "8" || char == "9") {
+                ringView.layer.borderColor = UIColor.gray.cgColor
+                squareView.addSubview(ringView)
+            } else if (char == "+" || char == "/") {
+                ringView.layer.borderColor = UIColor.black.cgColor
+                squareView.addSubview(ringView)
+            } else if (charStr.isLowercase()) {
                 ringView.layer.borderColor = UIColor.white.cgColor
                 squareView.addSubview(ringView)
             }
             
             self.addSubview(squareView)
             offsetX += 1
-            if (offsetX == 10) {
+            if (offsetX == Int(floor(Double(300 / squareSize)))) {
                 offsetY += 1
                 offsetX = 0
             }
@@ -69,12 +91,7 @@ class CryptView: UIView {
 
             UIView.animate(withDuration: 0.2, delay: TimeInterval(randDelay), options: UIViewAnimationOptions(rawValue: 0), animations: {
                 grid.alpha = 1
-                grid.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
-            }, completion: { finish in
-                UIView.animate(withDuration: 0.2){
-                    grid.transform = CGAffineTransform(scaleX: 1, y: 1)
-                }
-            })
+            }, completion: nil)
         }
     }
     

@@ -19,16 +19,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         super.viewDidLoad()
         self.inputTextView?.delegate = self
         self.hideKeyboardWhenTappedAround()
-        //self.testEncryption()
+        self.testEncryption()
     }
     
     func testEncryption() {
-        let message : String = "This is some secret text right here"
+        let message : String = "This is some secret text right here fraser is so dang cool omg cool dude lol i am the best the very best like no one ever was"
         var cipher : String?
         
         do {
             let temp = try message.aesEncrypt(key: "passwordpassword", iv: "drowssapdrowssap")
             cipher = temp
+            self.cryptView?.text = cipher
             print(cipher!)
         } catch {
             print("Error encoding")
@@ -43,7 +44,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func textViewDidChange(_ textView: UITextView) {
-        self.cryptView?.text = textView.text.lowercased()
+        self.cryptView?.text = textView.text
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
