@@ -44,7 +44,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func textViewDidChange(_ textView: UITextView) {
-        self.cryptView?.text = textView.text
+        do {
+            let temp = try textView.text.aesEncrypt(key: "passwordpassword", iv: "drowssapdrowssap")
+            cipher = temp
+            self.cryptView?.text = cipher
+        } catch {
+            print("Error encoding")
+        }
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {

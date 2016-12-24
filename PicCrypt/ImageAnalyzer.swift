@@ -42,7 +42,7 @@ extension UIImage {
         print(numberResult)
         
         var result = ""
-        let squareSize = self.getSquareSize(len: Int(numberResult)!)
+        let squareSize = self.getSquareSize(len: Int(numberResult)! + numberResult.characters.count)
         var countX : Int = 0
         var countY : Int = numberResult.characters.count + 1
         
