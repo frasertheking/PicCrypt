@@ -41,7 +41,7 @@ class CryptView: UIView {
         var offsetY: Int = 0
         for char in message.characters {
             let charStr = "\(char)"
-            let squareSize = getSquareSize(len: messageLen)
+            let squareSize = UIImage.getSquareSize(len: messageLen)
             
             let squareView = UIView(frame: CGRect(x: squareSize*offsetX, y: squareSize*offsetY, width: squareSize, height: squareSize))
             squareView.backgroundColor = CharColor.charToColor(character: charStr)
@@ -51,7 +51,7 @@ class CryptView: UIView {
             let ringView = UIView(frame: CGRect(x: 0, y: 0, width: squareSize, height: squareSize))
             ringView.layer.borderWidth = 5
             
-            if (char == "0" || char == "1" || char == "2" || char == "3" || char == "4" || char == "5" || char == "6" || char == "7" || char == "8" || char == "9") {
+            if self.isNumeric(char: char) {
                 ringView.layer.borderColor = UIColor.black.cgColor
                 squareView.addSubview(ringView)
             } else if (char == "+" || char == "/" || char == "=") {
@@ -70,21 +70,6 @@ class CryptView: UIView {
             }
         }
         showGrid()
-    }
-    
-    func getSquareSize(len: Int) -> Int {
-        let x : Double = 300
-        let y : Double = 300
-        let n : Double = Double(len)
-        let px = ceil(sqrt(Double(n * x / y)))
-        var sx : Double
-        if (floor(px * y / x) * px < n) {
-            sx = y / ceil(px*y/x)
-        } else {
-            sx = x / px
-        }
-        
-        return Int(floor(sx))
     }
 
     func showGrid() {
@@ -107,5 +92,12 @@ class CryptView: UIView {
             drawHierarchy(in: bounds, afterScreenUpdates: true)
         }
         return snapshotImage
+    }
+    
+    func isNumeric(char: Character) -> Bool {
+        if (char == "0" || char == "1" || char == "2" || char == "3" || char == "4" || char == "5" || char == "6" || char == "7" || char == "8" || char == "9") {
+            return true
+        }
+        return false
     }
 }

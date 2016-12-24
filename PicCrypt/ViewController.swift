@@ -15,41 +15,35 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet var inputTextView: UITextView?
     var picker : UIImagePickerController?
     var cipher : String?
+    var key : String?
+    var iv : String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.inputTextView?.delegate = self
-        self.hideKeyboardWhenTappedAround()
-        self.testEncryption()
-    }
-    
-    func testEncryption() {
-        let message : String = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+        
+        key = String.randomString(length: 32)
+        iv = String.randomString(length: 16)
         
         do {
-            let temp = try message.aesEncrypt(key: "passwordpassword", iv: "drowssapdrowssap")
+            let temp = try inputTextView?.text.aesEncrypt(key: key!, iv: iv!)
             cipher = temp
             self.cryptView?.text = cipher
-            print(cipher!)
         } catch {
-            print("Error encoding")
+            self.messageLabel?.text = "Error Encrypting"
         }
         
-        do {
-            let decryptedMessage = try cipher?.aesDecrypt(key: "passwordpassword", iv: "drowssapdrowssap")
-            print(decryptedMessage!)
-        } catch {
-            print("Error decoding")
-        }
+        self.inputTextView?.delegate = self
+        self.hideKeyboardWhenTappedAround()
+        self.setupParallax()
     }
     
     func textViewDidChange(_ textView: UITextView) {
         do {
-            let temp = try textView.text.aesEncrypt(key: "passwordpassword", iv: "drowssapdrowssap")
+            let temp = try textView.text.aesEncrypt(key: key!, iv: iv!)
             cipher = temp
             self.cryptView?.text = cipher
         } catch {
-            print("Error encoding")
+            self.messageLabel?.text = "Error Encrypting"
         }
     }
     
@@ -64,49 +58,49 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.messageLabel?.text = colorString
 
         do {
-            let decryptedMessage = try colorString?.aesDecrypt(key: "passwordpassword", iv: "drowssapdrowssap")
+            let decryptedMessage = try colorString?.aesDecrypt(key: key!, iv: iv!)
             self.messageLabel?.text = decryptedMessage
         } catch {
-            print("Error decoding")
+            self.messageLabel?.text = "Error Decrypting"
         }
     }
     
     @IBAction func takePictureWithCamera(sender: UIButton) {
-        picker = UIImagePickerController()
-        picker?.delegate = self
-        picker?.navigationBar.tintColor = UIColor.white
-        picker?.sourceType = UIImagePickerControllerSourceType.camera
-        picker?.allowsEditing = false
-        picker?.cameraViewTransform = (picker?.cameraViewTransform.translatedBy(x: 0, y: 44))!;
-
-        let overlayView: UIView = UIView(frame: CGRect(x: (self.view.frame.size.width / 2 - 125), y: (self.view.frame.size.height / 2 - 125), width: 250, height: 250))
-        overlayView.layer.cornerRadius = 5
-        overlayView.layer.masksToBounds = true
-        overlayView.layer.borderColor = UIColor.red.cgColor
-        overlayView.layer.borderWidth = 1
-        
-        picker?.cameraOverlayView = overlayView
-        self.messageLabel?.text = ""
-        self.present(picker!, animated: true, completion: nil)
+//        picker = UIImagePickerController()
+//        picker?.delegate = self
+//        picker?.navigationBar.tintColor = UIColor.white
+//        picker?.sourceType = UIImagePickerControllerSourceType.camera
+//        picker?.allowsEditing = false
+//        picker?.cameraViewTransform = (picker?.cameraViewTransform.translatedBy(x: 0, y: 44))!;
+//
+//        let overlayView: UIView = UIView(frame: CGRect(x: (self.view.frame.size.width / 2 - 125), y: (self.view.frame.size.height / 2 - 125), width: 250, height: 250))
+//        overlayView.layer.cornerRadius = 5
+//        overlayView.layer.masksToBounds = true
+//        overlayView.layer.borderColor = UIColor.red.cgColor
+//        overlayView.layer.borderWidth = 1
+//        
+//        picker?.cameraOverlayView = overlayView
+//        self.messageLabel?.text = ""
+//        self.present(picker!, animated: true, completion: nil)
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            let scaledImage: UIImage = resizeImage(image: pickedImage, newWidth: self.view.frame.size.width)
-            let rect = CGRect(x: (self.view.frame.size.width / 2 - 125), y: (self.view.frame.size.height / 2 - 210), width: 250, height: 250)
-            let selectedImage : UIImage = cropImage(image: scaledImage, toRect: rect)
-            
-            var messageString : String = ""
-        //    let colorArray = selectedImage.colorArray()
-        //    for color in colorArray {
-               // let closeColor = CustomColors.getClosestColor(color: color)
-               // messageString = messageString + CharColor.colorToChar(color: closeColor)
-               // print(CharColor.colorToChar(color: closeColor), terminator:"")
-          //  }
-           // self.messageLabel?.text = messageString
-        }
-        
-        picker.dismiss(animated: true, completion: nil);
+//        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+//            let scaledImage: UIImage = resizeImage(image: pickedImage, newWidth: self.view.frame.size.width)
+//            let rect = CGRect(x: (self.view.frame.size.width / 2 - 125), y: (self.view.frame.size.height / 2 - 210), width: 250, height: 250)
+////            let selectedImage : UIImage = cropImage(image: scaledImage, toRect: rect)
+//            
+////            var messageString : String = ""
+//        //    let colorArray = selectedImage.colorArray()
+//        //    for color in colorArray {
+//               // let closeColor = CustomColors.getClosestColor(color: color)
+//               // messageString = messageString + CharColor.colorToChar(color: closeColor)
+//               // print(CharColor.colorToChar(color: closeColor), terminator:"")
+//          //  }
+//           // self.messageLabel?.text = messageString
+//        }
+//        
+//        picker.dismiss(animated: true, completion: nil);
     }
     
     func cropImage(image:UIImage, toRect rect:CGRect) -> UIImage{
@@ -123,6 +117,27 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return newImage!
+    }
+    
+    func setupParallax() {
+        // Set vertical effect
+        let verticalMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.y",
+                                                               type: .tiltAlongVerticalAxis)
+        verticalMotionEffect.minimumRelativeValue = -10
+        verticalMotionEffect.maximumRelativeValue = 10
+        
+        // Set horizontal effect
+        let horizontalMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.x",
+                                                                 type: .tiltAlongHorizontalAxis)
+        horizontalMotionEffect.minimumRelativeValue = -10
+        horizontalMotionEffect.maximumRelativeValue = 10
+        
+        // Create group to combine both
+        let group = UIMotionEffectGroup()
+        group.motionEffects = [horizontalMotionEffect, verticalMotionEffect]
+        
+        // Add both effects to your view
+        cryptView?.addMotionEffect(group)
     }
 }
 

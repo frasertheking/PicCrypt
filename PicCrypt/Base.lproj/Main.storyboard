@@ -33,7 +33,7 @@
                                     <userDefinedRuntimeAttribute type="color" keyPath="viewBackgroundColor">
                                         <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="text" value="testing 123"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="text" value="The quick brown fox jumps over the lazy dog"/>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
@@ -41,8 +41,8 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gTs-Ow-BPE">
-                                <rect key="frame" x="130" y="617" width="115" height="30"/>
-                                <state key="normal" title="Take Screenshot"/>
+                                <rect key="frame" x="160.5" y="617" width="54" height="30"/>
+                                <state key="normal" title="Decode"/>
                                 <connections>
                                     <action selector="takeScreenshotWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WP4-KJ-IXf"/>
                                 </connections>

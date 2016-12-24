@@ -12,37 +12,12 @@ import UIKit
 extension UIImage {
     
     func colorString() -> String {
-        // First get width of number squares
-        var width : Int = 0
-        while (true) {
-            width += 1
-            let color = self.getPixelColor(pos: CGPoint(x: 10, y: 10 + width))
-            if (color == UIColor(red: 0, green: 0, blue: 0, alpha: 1)) {
-                break
-            }
-        }
         
-        // Now get number of objects
-        var numberResult : String = ""
-        var numCountY : Int = 0
-        width = width + 20
-        let myOffset = width / 2
-        while (true) {
-            let inColor : UIColor = CustomColors.getClosestColor(color: self.getPixelColor(pos: CGPoint(x: width/2, y: width * numCountY + myOffset)), number: true)
-            let outColor : UIColor = CustomColors.getOuterColor(color: self.getPixelColor(pos: CGPoint(x: 3, y: width * numCountY + myOffset)))
-
-            if (CustomColors.getClosestColor(color: inColor, number: true) == CustomColors.spColor) {
-                break
-            }
-            
-            numberResult += CharColor.colorToChar(innerColor: inColor, outerColor: outColor)
-            numCountY += 1
-        }
-        
-        print(numberResult)
+        let width = extractWidth()
+        var numberResult = extractNumber(width: width)
         
         var result = ""
-        let squareSize = self.getSquareSize(len: Int(numberResult)! + numberResult.characters.count)
+        let squareSize = UIImage.getSquareSize(len: Int(numberResult)! + numberResult.characters.count)
         var countX : Int = 0
         var countY : Int = numberResult.characters.count + 1
         
@@ -70,7 +45,38 @@ extension UIImage {
         return result
     }
     
-    func getSquareSize(len: Int) -> Int {
+    func extractWidth() -> Int {
+        var width : Int = 0
+        while (true) {
+            width += 1
+            let color = self.getPixelColor(pos: CGPoint(x: 10, y: 10 + width))
+            if (color == UIColor(red: 0, green: 0, blue: 0, alpha: 1)) {
+                break
+            }
+        }
+        return width
+    }
+    
+    func extractNumber(width: Int) -> String {
+        var numberResult : String = ""
+        var numCountY : Int = 0
+        let wWidth = width + 20
+        let myOffset = wWidth / 2
+        while (true) {
+            let inColor : UIColor = CustomColors.getClosestColor(color: self.getPixelColor(pos: CGPoint(x: wWidth/2, y: wWidth * numCountY + myOffset)), number: true)
+            let outColor : UIColor = CustomColors.getOuterColor(color: self.getPixelColor(pos: CGPoint(x: 3, y: wWidth * numCountY + myOffset)))
+            
+            if (CustomColors.getClosestColor(color: inColor, number: true) == CustomColors.spColor) {
+                break
+            }
+            
+            numberResult += CharColor.colorToChar(innerColor: inColor, outerColor: outColor)
+            numCountY += 1
+        }
+        return numberResult
+    }
+    
+    class func getSquareSize(len: Int) -> Int {
         let x : Double = 300
         let y : Double = 300
         let n : Double = Double(len)
