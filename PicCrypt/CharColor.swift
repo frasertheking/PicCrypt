@@ -95,9 +95,67 @@ class CharColor {
         } else {
             return UIColor.white
         }
-}
+    }
     
-    class func colorToChar(innerColor: UIColor, outerColor: UIColor) -> String {
+    class func colorToChar(innerColor: UIColor, outerColor: UIColor?) -> String {
+        
+        if (outerColor == nil) {
+            if innerColor == CustomColors.aColor {
+                return "A"
+            } else if innerColor == CustomColors.bColor {
+                return "B"
+            } else if innerColor == CustomColors.cColor {
+                return "C"
+            } else if innerColor == CustomColors.dColor {
+                return "D"
+            } else if innerColor == CustomColors.eColor {
+                return "E"
+            } else if innerColor == CustomColors.fColor {
+                return "F"
+            } else if innerColor == CustomColors.gColor {
+                return "G"
+            } else if innerColor == CustomColors.hColor {
+                return "H"
+            } else if innerColor == CustomColors.iColor {
+                return "I"
+            } else if innerColor == CustomColors.jColor {
+                return "J"
+            } else if innerColor == CustomColors.kColor {
+                return "K"
+            } else if innerColor == CustomColors.lColor {
+                return "L"
+            } else if innerColor == CustomColors.mColor {
+                return "M"
+            } else if innerColor == CustomColors.nColor {
+                return "N"
+            } else if innerColor == CustomColors.oColor {
+                return "O"
+            } else if innerColor == CustomColors.pColor {
+                return "P"
+            } else if innerColor == CustomColors.qColor {
+                return "Q"
+            } else if innerColor == CustomColors.rColor {
+                return "R"
+            } else if innerColor == CustomColors.sColor {
+                return "S"
+            } else if innerColor == CustomColors.tColor {
+                return "T"
+            } else if innerColor == CustomColors.uColor {
+                return "U"
+            } else if innerColor == CustomColors.vColor {
+                return "V"
+            } else if innerColor == CustomColors.wColor {
+                return "W"
+            } else if innerColor == CustomColors.xColor {
+                return "X"
+            } else if innerColor == CustomColors.yColor {
+                return "Y"
+            } else if innerColor == CustomColors.zColor {
+                return "Z"
+            } else if innerColor == CustomColors.spColor {
+                return " "
+            }
+        }
         
         // Number
         if (outerColor == UIColor.black) {
@@ -122,8 +180,70 @@ class CharColor {
             } else if (innerColor == CustomColors.color9) {
                 return "9"
             }
+        } else if (outerColor == UIColor.white) {
+            if innerColor == CustomColors.aColor {
+                return "a"
+            } else if innerColor == CustomColors.bColor {
+                return "b"
+            } else if innerColor == CustomColors.cColor {
+                return "c"
+            } else if innerColor == CustomColors.dColor {
+                return "d"
+            } else if innerColor == CustomColors.eColor {
+                return "e"
+            } else if innerColor == CustomColors.fColor {
+                return "f"
+            } else if innerColor == CustomColors.gColor {
+                return "g"
+            } else if innerColor == CustomColors.hColor {
+                return "h"
+            } else if innerColor == CustomColors.iColor {
+                return "i"
+            } else if innerColor == CustomColors.jColor {
+                return "j"
+            } else if innerColor == CustomColors.kColor {
+                return "k"
+            } else if innerColor == CustomColors.lColor {
+                return "l"
+            } else if innerColor == CustomColors.mColor {
+                return "m"
+            } else if innerColor == CustomColors.nColor {
+                return "n"
+            } else if innerColor == CustomColors.oColor {
+                return "o"
+            } else if innerColor == CustomColors.pColor {
+                return "p"
+            } else if innerColor == CustomColors.qColor {
+                return "q"
+            } else if innerColor == CustomColors.rColor {
+                return "r"
+            } else if innerColor == CustomColors.sColor {
+                return "s"
+            } else if innerColor == CustomColors.tColor {
+                return "t"
+            } else if innerColor == CustomColors.uColor {
+                return "u"
+            } else if innerColor == CustomColors.vColor {
+                return "v"
+            } else if innerColor == CustomColors.wColor {
+                return "w"
+            } else if innerColor == CustomColors.xColor {
+                return "x"
+            } else if innerColor == CustomColors.yColor {
+                return "y"
+            } else if innerColor == CustomColors.zColor {
+                return "z"
+            }
+        } else if (outerColor == UIColor.gray) {
+            if innerColor == CustomColors.colorPlus {
+                return "+"
+            } else if innerColor == CustomColors.colorSlash {
+                return "/"
+            } else if innerColor == CustomColors.colorEquals {
+                return "="
+            }
         }
-        return "?"
+        return ""
     }
 }
 

@@ -56,7 +56,7 @@
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vBS-HT-zBw">
                                 <rect key="frame" x="20" y="503.5" width="335" height="0.0"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -82,6 +82,7 @@
                             <constraint firstItem="gTs-Ow-BPE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Vje-KK-eCI"/>
                             <constraint firstItem="rm2-NU-601" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="16" id="Yom-eh-afQ"/>
                             <constraint firstItem="vBS-HT-zBw" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="fCq-qN-mwg"/>
+                            <constraint firstItem="gTs-Ow-BPE" firstAttribute="top" relation="greaterThanOrEqual" secondItem="vBS-HT-zBw" secondAttribute="bottom" constant="20" id="fYR-h1-CiA"/>
                             <constraint firstItem="vBS-HT-zBw" firstAttribute="top" secondItem="a1g-mH-Gje" secondAttribute="bottom" constant="20" id="qia-a4-uhO"/>
                             <constraint firstAttribute="trailingMargin" secondItem="CtZ-So-D9j" secondAttribute="trailing" constant="20" id="rkT-w2-ieJ"/>
                             <constraint firstAttribute="trailing" secondItem="rm2-NU-601" secondAttribute="trailing" constant="16" id="v2a-dN-mOg"/>

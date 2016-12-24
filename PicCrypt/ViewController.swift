@@ -14,17 +14,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet var messageLabel: UILabel?
     @IBOutlet var inputTextView: UITextView?
     var picker : UIImagePickerController?
+    var cipher : String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.inputTextView?.delegate = self
         self.hideKeyboardWhenTappedAround()
-       // self.testEncryption()
+        self.testEncryption()
     }
     
     func testEncryption() {
-        let message : String = "This is some secret text"
-        var cipher : String?
+        let message : String = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
         
         do {
             let temp = try message.aesEncrypt(key: "passwordpassword", iv: "drowssapdrowssap")
@@ -54,15 +54,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBAction func takeScreenshot(sender: UIButton) {
         self.messageLabel?.text = ""
         let image = cryptView?.takeScreenShot()
-        let colorArray = image?.colorArray()
-        
-        var messageString : String = ""
-        for color in colorArray! {
-         //   let closeColor = CustomColors.getClosestColor(color: color)
-           // messageString = messageString + CharColor.colorToChar(color: closeColor)
-           // print(CharColor.colorToChar(color: closeColor), terminator:"")
+        let colorString = image?.colorString()
+        self.messageLabel?.text = colorString
+
+        do {
+            let decryptedMessage = try colorString?.aesDecrypt(key: "passwordpassword", iv: "drowssapdrowssap")
+            self.messageLabel?.text = decryptedMessage
+        } catch {
+            print("Error decoding")
         }
-        self.messageLabel?.text = messageString
     }
     
     @IBAction func takePictureWithCamera(sender: UIButton) {
@@ -91,13 +91,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             let selectedImage : UIImage = cropImage(image: scaledImage, toRect: rect)
             
             var messageString : String = ""
-            let colorArray = selectedImage.colorArray()
-            for color in colorArray {
+        //    let colorArray = selectedImage.colorArray()
+        //    for color in colorArray {
                // let closeColor = CustomColors.getClosestColor(color: color)
                // messageString = messageString + CharColor.colorToChar(color: closeColor)
                // print(CharColor.colorToChar(color: closeColor), terminator:"")
-            }
-            self.messageLabel?.text = messageString
+          //  }
+           // self.messageLabel?.text = messageString
         }
         
         picker.dismiss(animated: true, completion: nil);

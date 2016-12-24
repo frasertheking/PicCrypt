@@ -54,7 +54,7 @@ class CryptView: UIView {
             if (char == "0" || char == "1" || char == "2" || char == "3" || char == "4" || char == "5" || char == "6" || char == "7" || char == "8" || char == "9") {
                 ringView.layer.borderColor = UIColor.black.cgColor
                 squareView.addSubview(ringView)
-            } else if (char == "+" || char == "/") {
+            } else if (char == "+" || char == "/" || char == "=") {
                 ringView.layer.borderColor = UIColor.gray.cgColor
                 squareView.addSubview(ringView)
             } else if (charStr.isLowercase()) {

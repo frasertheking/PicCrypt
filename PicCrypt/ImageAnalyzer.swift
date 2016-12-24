@@ -11,9 +11,7 @@ import UIKit
 
 extension UIImage {
     
-    func colorArray() -> [UIColor] {
-        let result = NSMutableArray()
-        
+    func colorString() -> String {
         // First get width of number squares
         var width : Int = 0
         while (true) {
@@ -43,22 +41,48 @@ extension UIImage {
         
         print(numberResult)
         
+        var result = ""
+        let squareSize = self.getSquareSize(len: Int(numberResult)!)
         var countX : Int = 0
-        var countY : Int = 0
+        var countY : Int = numberResult.characters.count + 1
         
-        let amount = self.cgImage!.width == 500 ? 50 : 25
-        let offset = self.cgImage!.width == 500 ? 25 : 12
+        let amount = squareSize*2
+        let offset = squareSize
         
         while (countX < self.cgImage!.width / amount) {
             while (countY < self.cgImage!.height / amount) {
-                result.add(self.getPixelColor(pos: CGPoint(x: countX * amount + offset, y: countY * amount + offset)))
+                let color1 : UIColor = self.getPixelColor(pos: CGPoint(x: countX * amount + offset, y: countY * amount + offset))
+                let color2 : UIColor = self.getPixelColor(pos: CGPoint(x: countX * amount + 3, y: countY * amount + offset))
+                if (color1 == color2) {
+                    result += (CharColor.colorToChar(innerColor: CustomColors.getClosestColor(color: color1, number: false), outerColor: nil))
+                } else if (CustomColors.getOuterColor(color: color2) == UIColor.white) {
+                    result += (CharColor.colorToChar(innerColor: CustomColors.getClosestColor(color: color1, number: false), outerColor: CustomColors.getOuterColor(color: color2)))
+                } else {
+                    result += (CharColor.colorToChar(innerColor: CustomColors.getClosestColor(color: color1, number: true), outerColor: CustomColors.getOuterColor(color: color2)))
+                }
+                
                 countY += 1
             }
             countX += 1
             countY = 0
         }
         
-        return (result as NSArray) as! [UIColor]
+        return result
+    }
+    
+    func getSquareSize(len: Int) -> Int {
+        let x : Double = 300
+        let y : Double = 300
+        let n : Double = Double(len)
+        let px = ceil(sqrt(Double(n * x / y)))
+        var sx : Double
+        if (floor(px * y / x) * px < n) {
+            sx = y / ceil(px*y/x)
+        } else {
+            sx = x / px
+        }
+        
+        return Int(floor(sx))
     }
     
     func getPixelColor(pos: CGPoint) -> UIColor {
