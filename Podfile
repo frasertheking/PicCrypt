@@ -5,5 +5,6 @@ use_frameworks!
 target 'PicCrypt' do
 
     pod 'CryptoSwift'
+    pod 'ISHPullUp'
 
 end

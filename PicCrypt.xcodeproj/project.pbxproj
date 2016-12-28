@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		43758A351DFC68A700BE6D3B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43758A341DFC68A700BE6D3B /* AppDelegate.swift */; };
-		43758A371DFC68A700BE6D3B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43758A361DFC68A700BE6D3B /* ViewController.swift */; };
+		43758A371DFC68A700BE6D3B /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43758A361DFC68A700BE6D3B /* MainController.swift */; };
 		43758A3A1DFC68A700BE6D3B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43758A381DFC68A700BE6D3B /* Main.storyboard */; };
 		43758A3C1DFC68A700BE6D3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43758A3B1DFC68A700BE6D3B /* Assets.xcassets */; };
 		43758A3F1DFC68A700BE6D3B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43758A3D1DFC68A700BE6D3B /* LaunchScreen.storyboard */; };
@@ -16,6 +16,10 @@
 		43758A491DFC733100BE6D3B /* CharColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43758A481DFC733100BE6D3B /* CharColor.swift */; };
 		43758A4B1DFCF40D00BE6D3B /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43758A4A1DFCF40D00BE6D3B /* CustomColors.swift */; };
 		438303A71E0A235900BAC1BB /* Crypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438303A61E0A235900BAC1BB /* Crypto.swift */; };
+		4393DB0F1E1443EC00D6DCFA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4393DB0D1E1443EC00D6DCFA /* ViewController.swift */; };
+		4393DB101E1443EC00D6DCFA /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4393DB0E1E1443EC00D6DCFA /* WebViewController.swift */; };
+		4393DB131E1443FB00D6DCFA /* BottomVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4393DB111E1443FB00D6DCFA /* BottomVC.swift */; };
+		4393DB141E1443FB00D6DCFA /* ContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4393DB121E1443FB00D6DCFA /* ContentVC.swift */; };
 		43AB95111E036890006E74C6 /* ImageAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AB95101E036890006E74C6 /* ImageAnalyzer.swift */; };
 		5DD971F0DD95921EB3BEAD5C /* Pods_PicCrypt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67F45A0240E4F7431ECB6DD9 /* Pods_PicCrypt.framework */; };
 /* End PBXBuildFile section */
@@ -24,7 +28,7 @@
 		01C66D4558ED024E9F42E61A /* Pods-PicCrypt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PicCrypt.release.xcconfig"; path = "Pods/Target Support Files/Pods-PicCrypt/Pods-PicCrypt.release.xcconfig"; sourceTree = "<group>"; };
 		43758A311DFC68A700BE6D3B /* PicCrypt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PicCrypt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43758A341DFC68A700BE6D3B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		43758A361DFC68A700BE6D3B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		43758A361DFC68A700BE6D3B /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		43758A391DFC68A700BE6D3B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		43758A3B1DFC68A700BE6D3B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		43758A3E1DFC68A700BE6D3B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -33,6 +37,11 @@
 		43758A481DFC733100BE6D3B /* CharColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharColor.swift; sourceTree = "<group>"; };
 		43758A4A1DFCF40D00BE6D3B /* CustomColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
 		438303A61E0A235900BAC1BB /* Crypto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Crypto.swift; sourceTree = "<group>"; };
+		4393DB0C1E1443E300D6DCFA /* ISHPullUpSample-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ISHPullUpSample-Bridging-Header.h"; sourceTree = "<group>"; };
+		4393DB0D1E1443EC00D6DCFA /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4393DB0E1E1443EC00D6DCFA /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		4393DB111E1443FB00D6DCFA /* BottomVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomVC.swift; sourceTree = "<group>"; };
+		4393DB121E1443FB00D6DCFA /* ContentVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentVC.swift; sourceTree = "<group>"; };
 		43AB95101E036890006E74C6 /* ImageAnalyzer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageAnalyzer.swift; sourceTree = "<group>"; };
 		67F45A0240E4F7431ECB6DD9 /* Pods_PicCrypt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PicCrypt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		702AA35CB2C96FE957E8E882 /* Pods-PicCrypt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PicCrypt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PicCrypt/Pods-PicCrypt.debug.xcconfig"; sourceTree = "<group>"; };
@@ -80,19 +89,32 @@
 		43758A331DFC68A700BE6D3B /* PicCrypt */ = {
 			isa = PBXGroup;
 			children = (
+				4393DB0B1E14436300D6DCFA /* PullControllers */,
 				43758A341DFC68A700BE6D3B /* AppDelegate.swift */,
 				438303A61E0A235900BAC1BB /* Crypto.swift */,
 				43758A4A1DFCF40D00BE6D3B /* CustomColors.swift */,
 				43758A481DFC733100BE6D3B /* CharColor.swift */,
 				43758A461DFC696200BE6D3B /* CryptView.swift */,
 				43AB95101E036890006E74C6 /* ImageAnalyzer.swift */,
-				43758A361DFC68A700BE6D3B /* ViewController.swift */,
+				43758A361DFC68A700BE6D3B /* MainController.swift */,
 				43758A381DFC68A700BE6D3B /* Main.storyboard */,
 				43758A3B1DFC68A700BE6D3B /* Assets.xcassets */,
 				43758A3D1DFC68A700BE6D3B /* LaunchScreen.storyboard */,
 				43758A401DFC68A700BE6D3B /* Info.plist */,
 			);
 			path = PicCrypt;
+			sourceTree = "<group>";
+		};
+		4393DB0B1E14436300D6DCFA /* PullControllers */ = {
+			isa = PBXGroup;
+			children = (
+				4393DB111E1443FB00D6DCFA /* BottomVC.swift */,
+				4393DB121E1443FB00D6DCFA /* ContentVC.swift */,
+				4393DB0D1E1443EC00D6DCFA /* ViewController.swift */,
+				4393DB0E1E1443EC00D6DCFA /* WebViewController.swift */,
+				4393DB0C1E1443E300D6DCFA /* ISHPullUpSample-Bridging-Header.h */,
+			);
+			name = PullControllers;
 			sourceTree = "<group>";
 		};
 		7BDA748EB719B7B1CD36AE9A /* Frameworks */ = {
@@ -227,12 +249,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4393DB141E1443FB00D6DCFA /* ContentVC.swift in Sources */,
 				43758A471DFC696200BE6D3B /* CryptView.swift in Sources */,
+				4393DB101E1443EC00D6DCFA /* WebViewController.swift in Sources */,
 				43AB95111E036890006E74C6 /* ImageAnalyzer.swift in Sources */,
 				43758A4B1DFCF40D00BE6D3B /* CustomColors.swift in Sources */,
-				43758A371DFC68A700BE6D3B /* ViewController.swift in Sources */,
+				43758A371DFC68A700BE6D3B /* MainController.swift in Sources */,
 				43758A351DFC68A700BE6D3B /* AppDelegate.swift in Sources */,
 				438303A71E0A235900BAC1BB /* Crypto.swift in Sources */,
+				4393DB131E1443FB00D6DCFA /* BottomVC.swift in Sources */,
+				4393DB0F1E1443EC00D6DCFA /* ViewController.swift in Sources */,
 				43758A491DFC733100BE6D3B /* CharColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
