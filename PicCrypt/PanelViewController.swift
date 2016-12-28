@@ -1,16 +1,16 @@
 //
-//  ScrollViewController.swift
-//  ISHPullUpSample
+//  PanelViewController.swift
+//  PicCrypt
 //
-//  Created by Felix Lamouroux on 25.06.16.
-//  Copyright © 2016 iosphere GmbH. All rights reserved.
+//  Created by Fraser King on 2016-12-10.
+//  Copyright © 2016 Fraser King. All rights reserved.
 //
 
 import UIKit
 import ISHPullUp
 import MapKit
 
-class BottomVC: UIViewController, ISHPullUpSizingDelegate, ISHPullUpStateDelegate {
+class PanelViewController: UIViewController, ISHPullUpSizingDelegate, ISHPullUpStateDelegate {
     @IBOutlet private weak var handleView: ISHPullUpHandleView!
     @IBOutlet private weak var rootView: UIView!
     @IBOutlet private weak var scrollView: UIScrollView!
@@ -47,9 +47,6 @@ class BottomVC: UIViewController, ISHPullUpSizingDelegate, ISHPullUpStateDelegat
         // for demo purposes we replace the bottomViewController with a web view controller
         // there is no way back in the sample app though
         // This also highlights the behaviour of the pullup view controller without a sizing and state delegate
-        let webVC = WebViewController()
-        webVC.loadURL(URL(string: "https://iosphere.de")!)
-        pullUpController.bottomViewController = webVC
     }
 
     @IBAction private func buttonTappedLock(_ sender: AnyObject) {

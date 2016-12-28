@@ -1,15 +1,15 @@
 //
-//  ViewController.swift
-//  ISHPullUpSample
+//  SplitViewController.swift
+//  PicCrypt
 //
-//  Created by Felix Lamouroux on 25.06.16.
-//  Copyright © 2016 iosphere GmbH. All rights reserved.
+//  Created by Fraser King on 2016-12-10.
+//  Copyright © 2016 Fraser King. All rights reserved.
 //
 
 import UIKit
 import ISHPullUp
 
-class ViewController: ISHPullUpViewController {
+class SplitViewController: ISHPullUpViewController {
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -23,8 +23,8 @@ class ViewController: ISHPullUpViewController {
 
     private func commonInit() {
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        let contentVC = storyBoard.instantiateViewController(withIdentifier: "crypt") as! MainController
-        let bottomVC = storyBoard.instantiateViewController(withIdentifier: "bottom") as! BottomVC
+        let contentVC = storyBoard.instantiateViewController(withIdentifier: "main") as! MainController
+        let bottomVC = storyBoard.instantiateViewController(withIdentifier: "panel") as! PanelViewController
         contentViewController = contentVC
         bottomViewController = bottomVC
         bottomVC.pullUpController = self

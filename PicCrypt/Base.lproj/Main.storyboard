@@ -6,15 +6,15 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Main Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="crypt" id="BYZ-38-t0r" customClass="MainController" customModule="PicCrypt" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="main" id="BYZ-38-t0r" customClass="MainController" customModule="PicCrypt" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -24,7 +24,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a1g-mH-Gje" customClass="CryptView" customModule="PicCrypt" customModuleProvider="target">
-                                <rect key="frame" x="37.5" y="183.5" width="300" height="300"/>
+                                <rect key="frame" x="37.5" y="133.5" width="300" height="300"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="9Wf-Rs-tG2"/>
@@ -34,7 +34,7 @@
                                     <userDefinedRuntimeAttribute type="color" keyPath="viewBackgroundColor">
                                         <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="text" value="The quick brown fox jumps over the lazy dog"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="text" value="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789 this has been some example text using the CryptPic engine"/>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
@@ -42,20 +42,33 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gTs-Ow-BPE">
-                                <rect key="frame" x="160.5" y="617" width="54" height="30"/>
-                                <state key="normal" title="Decode"/>
+                                <rect key="frame" x="125" y="543" width="125" height="44"/>
+                                <color key="backgroundColor" red="0.027450980390000001" green="0.81176470590000005" blue="0.77647058820000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="UVo-Xi-Eo1"/>
+                                    <constraint firstAttribute="width" constant="125" id="jU7-UP-PCT"/>
+                                </constraints>
+                                <state key="normal" title="Decode">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="takeScreenshotWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WP4-KJ-IXf"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vBS-HT-zBw">
-                                <rect key="frame" x="20" y="503.5" width="335" height="0.0"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="vBS-HT-zBw">
+                                <rect key="frame" x="20" y="453.5" width="335" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="testing 123" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="CtZ-So-D9j">
-                                <rect key="frame" x="36" y="83.5" width="303" height="80"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789 this has been some example text using the CryptPic engine" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="CtZ-So-D9j">
+                                <rect key="frame" x="36" y="33.5" width="303" height="80"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="ghI-wq-qmt"/>
@@ -67,9 +80,9 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="CtZ-So-D9j" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="30z-7i-RuO"/>
-                            <constraint firstItem="a1g-mH-Gje" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="CxE-BV-aSd"/>
+                            <constraint firstItem="a1g-mH-Gje" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="0.85" id="CxE-BV-aSd"/>
                             <constraint firstAttribute="trailing" secondItem="vBS-HT-zBw" secondAttribute="trailing" constant="20" id="EIQ-cx-Ka1"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="gTs-Ow-BPE" secondAttribute="bottom" constant="20" id="Lzz-qL-PMg"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="gTs-Ow-BPE" secondAttribute="bottom" constant="80" id="Lzz-qL-PMg"/>
                             <constraint firstItem="a1g-mH-Gje" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NRD-it-Z95"/>
                             <constraint firstItem="a1g-mH-Gje" firstAttribute="top" secondItem="CtZ-So-D9j" secondAttribute="bottom" constant="20" id="OUR-zf-LC5"/>
                             <constraint firstItem="gTs-Ow-BPE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Vje-KK-eCI"/>
@@ -88,12 +101,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="32.799999999999997" y="37.331334332833585"/>
+            <point key="canvasLocation" x="63" y="-201"/>
         </scene>
-        <!--BottomVC-->
+        <!--Panel View Controller-->
         <scene sceneID="oiH-Bv-rBW">
             <objects>
-                <viewController storyboardIdentifier="bottom" id="Fit-t8-jpA" customClass="BottomVC" customModule="PicCrypt" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="panel" id="Fit-t8-jpA" customClass="PanelViewController" customModule="PicCrypt" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QFM-ZK-rOb"/>
                         <viewControllerLayoutGuide type="bottom" id="v7L-Us-ZrF"/>
@@ -301,7 +314,7 @@ Two view subclasses are provided to make beautiful iOS10 style designs easier. <
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M6h-4i-y1Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="998" y="34"/>
+            <point key="canvasLocation" x="62" y="501"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="OYK-ls-ncX">
@@ -317,7 +330,7 @@ Two view subclasses are provided to make beautiful iOS10 style designs easier. <
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wGQ-4F-XkC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1678" y="31"/>
+            <point key="canvasLocation" x="764" y="497"/>
         </scene>
         <!--Modal View Controller-->
         <scene sceneID="k8W-rM-3ov">
@@ -354,12 +367,12 @@ Two view subclasses are provided to make beautiful iOS10 style designs easier. <
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sWK-f6-Tu1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2345" y="31"/>
+            <point key="canvasLocation" x="1431" y="497"/>
         </scene>
-        <!--View Controller-->
+        <!--Split View Controller-->
         <scene sceneID="sCQ-5L-8PM">
             <objects>
-                <viewController id="udk-es-6uo" customClass="ViewController" customModule="PicCrypt" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="udk-es-6uo" customClass="SplitViewController" customModule="PicCrypt" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="a0P-rP-XMs"/>
                         <viewControllerLayoutGuide type="bottom" id="vrg-8G-ioG"/>
@@ -372,66 +385,7 @@ Two view subclasses are provided to make beautiful iOS10 style designs easier. <
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xun-Zg-MDe" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1337" y="37"/>
-        </scene>
-        <!--ContentVC-->
-        <scene sceneID="Dqp-jb-iEO">
-            <objects>
-                <viewController storyboardIdentifier="content" id="Qd3-U1-4aI" customClass="ContentVC" customModule="PicCrypt" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="XaY-UB-pDt"/>
-                        <viewControllerLayoutGuide type="bottom" id="4Ul-hI-qa6"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="KqP-er-AKu">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GOL-OP-0Ce" userLabel="layoutMarginView">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" bottom margin 5 pt below line " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KDm-TX-rBc">
-                                        <rect key="frame" x="100" y="581" width="176" height="15"/>
-                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZSy-6H-9BF" userLabel="Ruler">
-                                        <rect key="frame" x="0.0" y="601" width="375" height="1"/>
-                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="1" id="Tvd-5T-lee"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="ZSy-6H-9BF" firstAttribute="leading" secondItem="GOL-OP-0Ce" secondAttribute="leadingMargin" id="Cwa-0a-58l"/>
-                                    <constraint firstItem="KDm-TX-rBc" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="GOL-OP-0Ce" secondAttribute="leadingMargin" id="EEh-nv-9df"/>
-                                    <constraint firstAttribute="rightMargin" secondItem="ZSy-6H-9BF" secondAttribute="right" id="EUP-6a-NsY"/>
-                                    <constraint firstItem="ZSy-6H-9BF" firstAttribute="top" secondItem="KDm-TX-rBc" secondAttribute="bottom" constant="5" id="Kna-Np-mV5"/>
-                                    <constraint firstItem="KDm-TX-rBc" firstAttribute="centerX" secondItem="GOL-OP-0Ce" secondAttribute="centerXWithinMargins" id="LFg-JI-i0u"/>
-                                    <constraint firstAttribute="bottomMargin" secondItem="ZSy-6H-9BF" secondAttribute="bottom" constant="5" id="sUz-az-SJn"/>
-                                </constraints>
-                                <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="60" right="0.0"/>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="GOL-OP-0Ce" firstAttribute="leading" secondItem="KqP-er-AKu" secondAttribute="leading" id="7Hd-je-MRt"/>
-                            <constraint firstAttribute="bottom" secondItem="GOL-OP-0Ce" secondAttribute="bottom" id="9Vn-Sc-rcA"/>
-                            <constraint firstItem="GOL-OP-0Ce" firstAttribute="top" secondItem="KqP-er-AKu" secondAttribute="top" id="On2-wY-rGE"/>
-                            <constraint firstAttribute="trailing" secondItem="GOL-OP-0Ce" secondAttribute="trailing" id="wPh-x5-CIb"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="layoutAnnotationLabel" destination="KDm-TX-rBc" id="dAY-Qd-N47"/>
-                        <outlet property="rootView" destination="GOL-OP-0Ce" id="rlQ-VI-0RY"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dVt-7A-9Zr" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-710" y="37"/>
+            <point key="canvasLocation" x="-721" y="34"/>
         </scene>
     </scenes>
 </document>
