@@ -49,8 +49,9 @@ class CryptView: UIView {
             squareView.alpha = 0
             squareView.layer.masksToBounds = true
             let ringView = UIView(frame: CGRect(x: 0, y: 0, width: squareSize, height: squareSize))
-            ringView.layer.borderWidth = 5
-            
+            ringView.layer.borderWidth = 3
+            squareView.transform = CGAffineTransform(scaleX: 0, y: 0)
+
             if self.isNumeric(char: char) {
                 ringView.layer.borderColor = UIColor.black.cgColor
                 squareView.addSubview(ringView)
@@ -79,7 +80,12 @@ class CryptView: UIView {
 
             UIView.animate(withDuration: 0.2, delay: TimeInterval(randDelay), options: UIViewAnimationOptions(rawValue: 0), animations: {
                 grid.alpha = 1
-            }, completion: nil)
+                grid.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
+            }, completion: { finish in
+                UIView.animate(withDuration: 0.2){
+                    grid.transform = CGAffineTransform(scaleX: 1, y: 1)
+                }
+            })
         }
     }
     

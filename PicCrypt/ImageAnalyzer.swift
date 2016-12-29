@@ -27,7 +27,7 @@ extension UIImage {
         while (countX < self.cgImage!.width / amount) {
             while (countY < self.cgImage!.height / amount) {
                 let color1 : UIColor = self.getPixelColor(pos: CGPoint(x: countX * amount + offset, y: countY * amount + offset))
-                let color2 : UIColor = self.getPixelColor(pos: CGPoint(x: countX * amount + 3, y: countY * amount + offset))
+                let color2 : UIColor = self.getPixelColor(pos: CGPoint(x: countX * amount + 2, y: countY * amount + offset))
                 if (color1 == color2) {
                     result += (CharColor.colorToChar(innerColor: CustomColors.getClosestColor(color: color1, number: false), outerColor: nil))
                 } else if (CustomColors.getOuterColor(color: color2) == UIColor.white) {
@@ -49,7 +49,7 @@ extension UIImage {
         var width : Int = 0
         while (true) {
             width += 1
-            let color = self.getPixelColor(pos: CGPoint(x: 10, y: 10 + width))
+            let color = self.getPixelColor(pos: CGPoint(x: 6, y: 6 + width))
             if (color == UIColor(red: 0, green: 0, blue: 0, alpha: 1)) {
                 break
             }
@@ -60,11 +60,11 @@ extension UIImage {
     func extractNumber(width: Int) -> String {
         var numberResult : String = ""
         var numCountY : Int = 0
-        let wWidth = width + 20
+        let wWidth = width + 12
         let myOffset = wWidth / 2
         while (true) {
             let inColor : UIColor = CustomColors.getClosestColor(color: self.getPixelColor(pos: CGPoint(x: wWidth/2, y: wWidth * numCountY + myOffset)), number: true)
-            let outColor : UIColor = CustomColors.getOuterColor(color: self.getPixelColor(pos: CGPoint(x: 3, y: wWidth * numCountY + myOffset)))
+            let outColor : UIColor = CustomColors.getOuterColor(color: self.getPixelColor(pos: CGPoint(x: 2, y: wWidth * numCountY + myOffset)))
             
             if (CustomColors.getClosestColor(color: inColor, number: true) == CustomColors.spColor) {
                 break
