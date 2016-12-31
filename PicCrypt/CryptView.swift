@@ -71,10 +71,11 @@ class CryptView: UIView {
             }
         }
         showGrid()
+        Timer.scheduledTimer(timeInterval: TimeInterval(10), target: self, selector: #selector(CryptView.pulse), userInfo: nil, repeats: true)
+
     }
 
     func showGrid() {
-        
         for grid in self.subviews {
             let randDelay = CGFloat(Float(arc4random()) / Float(UINT32_MAX))
 
@@ -85,6 +86,22 @@ class CryptView: UIView {
                 UIView.animate(withDuration: 0.2){
                     grid.transform = CGAffineTransform(scaleX: 1, y: 1)
                 }
+            })
+        }
+    }
+    
+    func pulse() {
+        for grid in self.subviews {
+            self.bringSubview(toFront: grid)
+            let randDelay = CGFloat(Float(arc4random()) / Float(UINT32_MAX))
+            UIView.animate(withDuration: 0.35, delay: TimeInterval(randDelay), options: UIViewAnimationOptions(rawValue: 0), animations: {
+                grid.transform = CGAffineTransform(scaleX: 1.15, y: 1.15)
+            }, completion: { (finished) in
+                UIView.animate(withDuration: 0.25, delay: TimeInterval(randDelay), options: UIViewAnimationOptions(rawValue: 0), animations: {
+                    grid.transform = CGAffineTransform(scaleX: 1, y: 1)
+                }, completion: { (finished) in
+                    self.sendSubview(toBack: grid)
+                })
             })
         }
     }
