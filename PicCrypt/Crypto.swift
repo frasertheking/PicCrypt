@@ -18,10 +18,13 @@ extension String {
     }
     
     func aesDecrypt(key: String, iv: String) throws -> String {
-        let data = Data(base64Encoded: self)!
-        let decrypted = try! AES(key: key, iv: iv, blockMode: .CBC, padding: PKCS7()).decrypt([UInt8](data))
-        let decryptedData = Data(decrypted)
-        return String(bytes: decryptedData.bytes, encoding: .utf8) ?? "Could not decrypt"
+        if let data = Data(base64Encoded: self) {
+            let decrypted = try! AES(key: key, iv: iv, blockMode: .CBC, padding: PKCS7()).decrypt([UInt8](data))
+            let decryptedData = Data(decrypted)
+            return String(bytes: decryptedData.bytes, encoding: .utf8) ?? "Could not decrypt"
+        } else {
+            return "Could not decrypt"
+        }
     }
     
     func isLowercase() -> Bool {

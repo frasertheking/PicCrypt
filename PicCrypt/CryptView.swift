@@ -13,7 +13,7 @@ import UIKit
 class CryptView: UIView {
     @IBInspectable var text: String?  {
         didSet {
-            updatePattern(message: "\(text!.characters.count) " + text!)
+            updatePattern(message: "\(text!.characters.count) " + text! + "R5b0u")
         }
     }
     @IBInspectable var viewBackgroundColor: UIColor? {

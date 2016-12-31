@@ -58,7 +58,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="takeScreenshotWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WP4-KJ-IXf"/>
+                                    <action selector="decodeWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="g17-Qh-WeY"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="vBS-HT-zBw">

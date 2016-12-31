@@ -53,14 +53,18 @@ class MainController: UIViewController, UIImagePickerControllerDelegate, UINavig
         textView.text = ""
     }
     
-    @IBAction func takeScreenshot(sender: UIButton) {
+    @IBAction func decode(sender: UIButton) {
         self.messageLabel?.text = ""
         let image = cryptView?.takeScreenShot()
-        let colorString = image?.colorString()
-        self.messageLabel?.text = colorString
+        let cipherText = image?.colorString()
+        let endIndex = cipherText?.index((cipherText?.endIndex)!, offsetBy: -5)
+        let truncatedCipher = cipherText?.substring(to: endIndex!)
+        let identifier = cipherText?.substring(from:(cipherText?.index((cipherText?.endIndex)!, offsetBy: -5))!)
+        self.messageLabel?.text = truncatedCipher
 
+        print("\(identifier!)")
         do {
-            let decryptedMessage = try colorString?.aesDecrypt(key: key!, iv: iv!)
+            let decryptedMessage = try truncatedCipher?.aesDecrypt(key: key!, iv: iv!)
             self.messageLabel?.text = decryptedMessage
         } catch {
             self.messageLabel?.text = "Error Decrypting"
