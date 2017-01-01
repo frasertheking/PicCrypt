@@ -71,8 +71,7 @@ class CryptView: UIView {
             }
         }
         showGrid()
-        Timer.scheduledTimer(timeInterval: TimeInterval(10), target: self, selector: #selector(CryptView.pulse), userInfo: nil, repeats: true)
-
+        //Timer.scheduledTimer(timeInterval: TimeInterval(10), target: self, selector: #selector(CryptView.pulse), userInfo: nil, repeats: true)
     }
 
     func showGrid() {

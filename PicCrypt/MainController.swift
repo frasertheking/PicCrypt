@@ -13,7 +13,7 @@ class MainController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBOutlet private weak var rootView: UIView!
     @IBOutlet var cryptView: CryptView?
-    @IBOutlet var messageLabel: UILabel?
+    //@IBOutlet var messageLabel: UILabel?
     @IBOutlet var inputTextView: UITextView?
     var picker : UIImagePickerController?
     var cipher : String?
@@ -22,7 +22,7 @@ class MainController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+                
         key = String.randomString(length: 32)
         iv = String.randomString(length: 16)
         
@@ -31,7 +31,7 @@ class MainController: UIViewController, UIImagePickerControllerDelegate, UINavig
             cipher = temp
             self.cryptView?.text = cipher
         } catch {
-            self.messageLabel?.text = "Error Encrypting"
+            print("Error Encrypting")
         }
         
         self.inputTextView?.delegate = self
@@ -45,7 +45,7 @@ class MainController: UIViewController, UIImagePickerControllerDelegate, UINavig
             cipher = temp
             self.cryptView?.text = cipher
         } catch {
-            self.messageLabel?.text = "Error Encrypting"
+            print("Error Encrypting")
         }
     }
     
@@ -54,20 +54,19 @@ class MainController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     @IBAction func decode(sender: UIButton) {
-        self.messageLabel?.text = ""
         let image = cryptView?.takeScreenShot()
         let cipherText = image?.colorString()
         let endIndex = cipherText?.index((cipherText?.endIndex)!, offsetBy: -5)
         let truncatedCipher = cipherText?.substring(to: endIndex!)
         let identifier = cipherText?.substring(from:(cipherText?.index((cipherText?.endIndex)!, offsetBy: -5))!)
-        self.messageLabel?.text = truncatedCipher
 
         print("\(identifier!)")
+
         do {
             let decryptedMessage = try truncatedCipher?.aesDecrypt(key: key!, iv: iv!)
-            self.messageLabel?.text = decryptedMessage
+            print("\(decryptedMessage!)")
         } catch {
-            self.messageLabel?.text = "Error Decrypting"
+            print("Error Decrypting")
         }
     }
     
