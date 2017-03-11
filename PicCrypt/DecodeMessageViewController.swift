@@ -27,16 +27,12 @@ class DecodeMessageViewController: UIViewController {
         let cipherText = cryptImageView.image?.colorString()
         let endIndex = cipherText?.index((cipherText?.endIndex)!, offsetBy: -5)
         let truncatedCipher = cipherText?.substring(to: endIndex!)
-        let identifier = cipherText?.substring(from:(cipherText?.index((cipherText?.endIndex)!, offsetBy: -5))!)
+        //let identifier = cipherText?.substring(from:(cipherText?.index((cipherText?.endIndex)!, offsetBy: -5))!)
         
-        //        myImageUploadRequest(image: image!)
-        print("\(identifier!)")
-
-        print(cipherText)
         do {
             let decryptedMessage = try truncatedCipher?.aesDecrypt(key: UserDefaults.standard.value(forKey: "secret_key") as! String,
                                                                          iv: UserDefaults.standard.value(forKey: "secret_iv") as! String)
-            print("\(decryptedMessage!)")
+            decodedMessageLabel.text = "\(decryptedMessage!)"
         } catch {
             print("Error Decrypting")
         }

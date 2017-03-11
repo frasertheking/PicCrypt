@@ -501,7 +501,6 @@ Two view subclasses are provided to make beautiful iOS10 style designs easier. <
         <!--Split View Controller-->
         <scene sceneID="sCQ-5L-8PM">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xun-Zg-MDe" sceneMemberID="firstResponder"/>
                 <viewController id="udk-es-6uo" customClass="SplitViewController" customModule="PicCrypt" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="a0P-rP-XMs"/>
@@ -514,6 +513,7 @@ Two view subclasses are provided to make beautiful iOS10 style designs easier. <
                     </view>
                     <navigationItem key="navigationItem" id="VRg-IQ-m8e"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xun-Zg-MDe" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-612" y="496"/>
         </scene>

@@ -79,13 +79,9 @@ class MainController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBAction func decode(sender: UIButton) {
         let image = cryptView?.takeScreenShot()
         let cipherText = image?.colorString()
-        print(cipherText)
         let endIndex = cipherText?.index((cipherText?.endIndex)!, offsetBy: -5)
         let truncatedCipher = cipherText?.substring(to: endIndex!)
-        let identifier = cipherText?.substring(from:(cipherText?.index((cipherText?.endIndex)!, offsetBy: -5))!)
-
-//        myImageUploadRequest(image: image!)
-        print("\(identifier!)")
+//        let identifier = cipherText?.substring(from:(cipherText?.index((cipherText?.endIndex)!, offsetBy: -5))!)
 
         do {
             let decryptedMessage = try truncatedCipher?.aesDecrypt(key: key!, iv: iv!)
