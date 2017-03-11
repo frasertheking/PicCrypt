@@ -27,7 +27,7 @@ class MainController: UIViewController, UIImagePickerControllerDelegate, UINavig
         // Setting up basic controller stuff
         self.title = "Crypt Pic"
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named:"upload"), style: .plain, target: self, action: #selector(uploadImage))
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named:"messages"), style: .plain, target: self, action: #selector(uploadImage))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named:"messages"), style: .plain, target: self, action: #selector(showMessages))
         self.navigationController?.navigationBar.tintColor = UIColor.black
         
         key = String.randomString(length: 32)
@@ -86,6 +86,10 @@ class MainController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func uploadImage() {
         let image = cryptView?.takeScreenShot()
         myImageUploadRequest(image: image!)
+    }
+    
+    func showMessages() {
+        performSegue(withIdentifier: "showMessages", sender: nil)
     }
     
     @IBAction func takePictureWithCamera(sender: UIButton) {

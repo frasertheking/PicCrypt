@@ -84,11 +84,73 @@
                         <outlet property="decodeButton" destination="gTs-Ow-BPE" id="YuH-ax-bse"/>
                         <outlet property="inputTextView" destination="CtZ-So-D9j" id="kn7-LT-Kb6"/>
                         <outlet property="rootView" destination="8bC-Xf-vdC" id="1Ng-mC-duR"/>
+                        <segue destination="pnM-oF-6HW" kind="presentation" identifier="showMessages" id="D7K-y5-KHm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="61.600000000000001" y="-201.04947526236884"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="bGW-OV-F0v">
+            <objects>
+                <navigationController id="pnM-oF-6HW" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Unp-Hj-Yog">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="zdd-Wf-zkg" kind="relationship" relationship="rootViewController" id="vMa-BG-QBJ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oQl-q4-l4K" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="764" y="-201"/>
+        </scene>
+        <!--Messages View Controller-->
+        <scene sceneID="nRc-2Y-90J">
+            <objects>
+                <viewController id="zdd-Wf-zkg" customClass="MessagesViewController" customModule="PicCrypt" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4WE-9R-fnq"/>
+                        <viewControllerLayoutGuide type="bottom" id="u59-4i-07L"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dLn-dG-Cu6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Wzm-aq-su1">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="Wzm-aq-su1" secondAttribute="bottom" id="27m-gt-UEQ"/>
+                            <constraint firstItem="Wzm-aq-su1" firstAttribute="top" secondItem="dLn-dG-Cu6" secondAttribute="top" id="2hP-tn-2lq"/>
+                            <constraint firstAttribute="trailing" secondItem="Wzm-aq-su1" secondAttribute="trailing" id="hSK-25-N2P"/>
+                            <constraint firstItem="Wzm-aq-su1" firstAttribute="leading" secondItem="dLn-dG-Cu6" secondAttribute="leading" id="jCy-ui-qtK"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="ud4-M0-W9H">
+                        <barButtonItem key="rightBarButtonItem" title="Close" style="plain" id="hKS-vB-b6g">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="UQ8-9z-K1j">
+                                <rect key="frame" x="276" y="7" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Close"/>
+                                <connections>
+                                    <action selector="dismissModal" destination="zdd-Wf-zkg" eventType="touchUpInside" id="e9H-j3-36s"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="Wzm-aq-su1" id="4af-M0-EHL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Ux-Cc-qIn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1465" y="-201"/>
         </scene>
         <!--Panel View Controller-->
         <scene sceneID="oiH-Bv-rBW">
