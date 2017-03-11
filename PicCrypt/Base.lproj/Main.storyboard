@@ -130,6 +130,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="71"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="7vc-Oq-MP4" kind="show" identifier="decodeSegue" id="seU-yU-PSu"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -165,6 +168,53 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Ux-Cc-qIn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1464.8" y="-201.04947526236884"/>
+        </scene>
+        <!--Decode Message View Controller-->
+        <scene sceneID="mez-yH-wTu">
+            <objects>
+                <viewController id="7vc-Oq-MP4" customClass="DecodeMessageViewController" customModule="PicCrypt" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5ik-fh-uVZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="NI2-Qe-Oe7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wJp-Yb-Kbg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wj2-f2-fGF">
+                                <rect key="frame" x="37.5" y="217" width="300" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="UHg-W0-6U1"/>
+                                    <constraint firstAttribute="width" constant="300" id="diU-Pn-9Q7"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FJI-bH-bTS">
+                                <rect key="frame" x="36" y="113" width="303" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="dFF-aB-6W0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wj2-f2-fGF" firstAttribute="centerY" secondItem="wJp-Yb-Kbg" secondAttribute="centerY" multiplier="1.1" id="2Qp-NO-yia"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="FJI-bH-bTS" secondAttribute="trailing" constant="20" id="907-cC-8Y2"/>
+                            <constraint firstItem="wj2-f2-fGF" firstAttribute="top" secondItem="FJI-bH-bTS" secondAttribute="bottom" constant="24" id="DE7-5N-Knt"/>
+                            <constraint firstItem="FJI-bH-bTS" firstAttribute="leading" secondItem="wJp-Yb-Kbg" secondAttribute="leadingMargin" constant="20" id="M9D-I0-WqK"/>
+                            <constraint firstItem="wj2-f2-fGF" firstAttribute="centerX" secondItem="wJp-Yb-Kbg" secondAttribute="centerX" id="e4Q-se-1fd"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="cryptImageView" destination="wj2-f2-fGF" id="rpN-wp-5AZ"/>
+                        <outlet property="decodedMessageLabel" destination="FJI-bH-bTS" id="N5Z-vs-p4n"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bAS-lu-3r2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2222" y="-201"/>
         </scene>
         <!--Panel View Controller-->
         <scene sceneID="oiH-Bv-rBW">

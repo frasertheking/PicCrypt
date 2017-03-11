@@ -20,6 +20,7 @@
 		4393DB131E1443FB00D6DCFA /* PanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4393DB111E1443FB00D6DCFA /* PanelViewController.swift */; };
 		43AB95111E036890006E74C6 /* ImageAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AB95101E036890006E74C6 /* ImageAnalyzer.swift */; };
 		43B6932B1E74A80400AC256C /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B6932A1E74A80400AC256C /* MessagesViewController.swift */; };
+		43B6932D1E74B3E500AC256C /* DecodeMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B6932C1E74B3E500AC256C /* DecodeMessageViewController.swift */; };
 		5DD971F0DD95921EB3BEAD5C /* Pods_PicCrypt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67F45A0240E4F7431ECB6DD9 /* Pods_PicCrypt.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 		4393DB111E1443FB00D6DCFA /* PanelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanelViewController.swift; sourceTree = "<group>"; };
 		43AB95101E036890006E74C6 /* ImageAnalyzer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageAnalyzer.swift; sourceTree = "<group>"; };
 		43B6932A1E74A80400AC256C /* MessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
+		43B6932C1E74B3E500AC256C /* DecodeMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecodeMessageViewController.swift; sourceTree = "<group>"; };
 		67F45A0240E4F7431ECB6DD9 /* Pods_PicCrypt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PicCrypt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		702AA35CB2C96FE957E8E882 /* Pods-PicCrypt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PicCrypt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PicCrypt/Pods-PicCrypt.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -93,6 +95,7 @@
 				43758A361DFC68A700BE6D3B /* MainController.swift */,
 				4393DB111E1443FB00D6DCFA /* PanelViewController.swift */,
 				43B6932A1E74A80400AC256C /* MessagesViewController.swift */,
+				43B6932C1E74B3E500AC256C /* DecodeMessageViewController.swift */,
 				43758A381DFC68A700BE6D3B /* Main.storyboard */,
 				43758A3B1DFC68A700BE6D3B /* Assets.xcassets */,
 				43758A341DFC68A700BE6D3B /* AppDelegate.swift */,
@@ -254,6 +257,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43B6932D1E74B3E500AC256C /* DecodeMessageViewController.swift in Sources */,
 				43B6932B1E74A80400AC256C /* MessagesViewController.swift in Sources */,
 				43758A471DFC696200BE6D3B /* CryptView.swift in Sources */,
 				43AB95111E036890006E74C6 /* ImageAnalyzer.swift in Sources */,

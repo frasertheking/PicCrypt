@@ -30,8 +30,19 @@ class MainController: UIViewController, UIImagePickerControllerDelegate, UINavig
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named:"messages"), style: .plain, target: self, action: #selector(showMessages))
         self.navigationController?.navigationBar.tintColor = UIColor.black
         
-        key = String.randomString(length: 32)
-        iv = String.randomString(length: 16)
+        if (((UserDefaults.standard.value(forKey: "secret_key"))) == nil) {
+            key = String.randomString(length: 32)
+            UserDefaults.standard.setValue(key, forKey: "secret_key")
+        } else {
+            key = UserDefaults.standard.value(forKey: "secret_key") as! String?;
+        }
+        
+        if (((UserDefaults.standard.value(forKey: "secret_iv"))) == nil) {
+            iv = String.randomString(length: 16)
+            UserDefaults.standard.setValue(iv, forKey: "secret_iv")
+        } else {
+            iv = UserDefaults.standard.value(forKey: "secret_iv") as! String?
+        }
         
         do {
             let temp = try inputTextView?.text.aesEncrypt(key: key!, iv: iv!)
@@ -68,6 +79,7 @@ class MainController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBAction func decode(sender: UIButton) {
         let image = cryptView?.takeScreenShot()
         let cipherText = image?.colorString()
+        print(cipherText)
         let endIndex = cipherText?.index((cipherText?.endIndex)!, offsetBy: -5)
         let truncatedCipher = cipherText?.substring(to: endIndex!)
         let identifier = cipherText?.substring(from:(cipherText?.index((cipherText?.endIndex)!, offsetBy: -5))!)

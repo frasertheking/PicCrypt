@@ -55,6 +55,14 @@ class MessagesViewController: UIViewController, UITableViewDataSource, UITableVi
         return "Boundary-\(NSUUID().uuidString)"
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "decodeSegue") {
+            let nextScene = segue.destination as? DecodeMessageViewController
+            let indexPath = self.tableView.indexPathForSelectedRow
+            nextScene?.imageURL = filenameArray[(indexPath?.row)!]
+        }
+    }
+    
     // UITableView Stuff
     
     func numberOfSections(in tableView: UITableView) -> Int {
