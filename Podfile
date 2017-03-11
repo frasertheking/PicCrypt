@@ -6,5 +6,5 @@ target 'PicCrypt' do
 
     pod 'CryptoSwift'
     pod 'ISHPullUp'
-
+    pod 'SDWebImage', '~>3.8'
 end

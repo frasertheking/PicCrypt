@@ -1,6 +1,0 @@
-framework module SLPagingViewSwift_Swift3 {
-  umbrella header "SLPagingViewSwift-Swift3-umbrella.h"
-
-  export *
-  module * { export * }
-}

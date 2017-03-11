@@ -1,15 +1,20 @@
 PODS:
   - CryptoSwift (0.6.6)
   - ISHPullUp (1.0.4)
+  - SDWebImage (3.8.2):
+    - SDWebImage/Core (= 3.8.2)
+  - SDWebImage/Core (3.8.2)
 
 DEPENDENCIES:
   - CryptoSwift
   - ISHPullUp
+  - SDWebImage (~> 3.8)
 
 SPEC CHECKSUMS:
   CryptoSwift: 88592381b73f36e192124539390a7c9bacda76af
   ISHPullUp: b98a286f3e85dc885a3bf20bf75853947984277d
+  SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
 
-PODFILE CHECKSUM: 872a8a3ed6e7aec5d79439ff3411a35dbe0eb1da
+PODFILE CHECKSUM: 5f1a561cdfee4fb0944b1335d58c129441916a9e
 
 COCOAPODS: 1.1.1

@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4C880B26369BDCD3F6CB969F2B412FB2"
+               BlueprintIdentifier = "161C85DEF046FB3585DB070DC5A6DDF0"
                BuildableName = "Pods_PicCrypt.framework"
                BlueprintName = "Pods-PicCrypt"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4C880B26369BDCD3F6CB969F2B412FB2"
+            BlueprintIdentifier = "161C85DEF046FB3585DB070DC5A6DDF0"
             BuildableName = "Pods_PicCrypt.framework"
             BlueprintName = "Pods-PicCrypt"
             ReferencedContainer = "container:Pods.xcodeproj">
