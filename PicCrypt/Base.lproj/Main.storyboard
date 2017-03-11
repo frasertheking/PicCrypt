@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zWL-8E-wtx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zWL-8E-wtx">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -23,7 +24,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a1g-mH-Gje" customClass="CryptView" customModule="PicCrypt" customModuleProvider="target">
-                                <rect key="frame" x="37.5" y="64" width="300" height="300"/>
+                                <rect key="frame" x="37.5" y="217" width="300" height="300"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="9Wf-Rs-tG2"/>
@@ -37,7 +38,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gTs-Ow-BPE">
-                                <rect key="frame" x="125" y="543" width="125" height="44"/>
+                                <rect key="frame" x="125" y="541" width="125" height="44"/>
                                 <color key="backgroundColor" red="0.027450980390000001" green="0.81176470590000005" blue="0.77647058820000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="UVo-Xi-Eo1"/>
@@ -57,7 +58,7 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789 this has been some example text using the CryptPic engine" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="CtZ-So-D9j">
-                                <rect key="frame" x="36" y="379" width="303" height="80"/>
+                                <rect key="frame" x="36" y="113.5" width="303" height="80"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="ghI-wq-qmt"/>
@@ -68,24 +69,26 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="a1g-mH-Gje" firstAttribute="top" secondItem="CtZ-So-D9j" secondAttribute="bottom" constant="24" id="0s6-zr-S1c"/>
                             <constraint firstItem="CtZ-So-D9j" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="30z-7i-RuO"/>
-                            <constraint firstItem="CtZ-So-D9j" firstAttribute="top" secondItem="a1g-mH-Gje" secondAttribute="bottom" constant="15" id="9NX-VT-WXR"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="gTs-Ow-BPE" secondAttribute="bottom" constant="80" id="Lzz-qL-PMg"/>
+                            <constraint firstItem="a1g-mH-Gje" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="1.1" id="4FF-6k-g02"/>
                             <constraint firstItem="a1g-mH-Gje" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NRD-it-Z95"/>
+                            <constraint firstItem="gTs-Ow-BPE" firstAttribute="top" secondItem="a1g-mH-Gje" secondAttribute="bottom" constant="24" id="SN6-Hf-9fO"/>
                             <constraint firstItem="gTs-Ow-BPE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Vje-KK-eCI"/>
                             <constraint firstAttribute="trailingMargin" secondItem="CtZ-So-D9j" secondAttribute="trailing" constant="20" id="rkT-w2-ieJ"/>
-                            <constraint firstItem="a1g-mH-Gje" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="44" id="wYo-QL-k7d"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="qef-Ke-Csz"/>
                     <connections>
                         <outlet property="cryptView" destination="a1g-mH-Gje" id="uZM-RY-S1I"/>
+                        <outlet property="decodeButton" destination="gTs-Ow-BPE" id="YuH-ax-bse"/>
                         <outlet property="inputTextView" destination="CtZ-So-D9j" id="kn7-LT-Kb6"/>
                         <outlet property="rootView" destination="8bC-Xf-vdC" id="1Ng-mC-duR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="63" y="-201"/>
+            <point key="canvasLocation" x="61.600000000000001" y="-201.04947526236884"/>
         </scene>
         <!--Panel View Controller-->
         <scene sceneID="oiH-Bv-rBW">
@@ -362,16 +365,17 @@ Two view subclasses are provided to make beautiful iOS10 style designs easier. <
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="udk-es-6uo" kind="relationship" relationship="rootViewController" id="xoA-oH-crh"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="FCf-nJ-Hcj"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3i4-bF-8v2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1482" y="34"/>
+            <point key="canvasLocation" x="-657" y="-201"/>
         </scene>
         <!--Split View Controller-->
         <scene sceneID="sCQ-5L-8PM">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xun-Zg-MDe" sceneMemberID="firstResponder"/>
                 <viewController id="udk-es-6uo" customClass="SplitViewController" customModule="PicCrypt" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="a0P-rP-XMs"/>
@@ -384,9 +388,8 @@ Two view subclasses are provided to make beautiful iOS10 style designs easier. <
                     </view>
                     <navigationItem key="navigationItem" id="VRg-IQ-m8e"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xun-Zg-MDe" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-721" y="34"/>
+            <point key="canvasLocation" x="-612" y="496"/>
         </scene>
     </scenes>
 </document>

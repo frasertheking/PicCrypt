@@ -13,6 +13,7 @@ class MainController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBOutlet private weak var rootView: UIView!
     @IBOutlet var cryptView: CryptView?
+    @IBOutlet var decodeButton: UIButton?
     //@IBOutlet var messageLabel: UILabel?
     @IBOutlet var inputTextView: UITextView?
     var picker : UIImagePickerController?
@@ -22,7 +23,13 @@ class MainController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+        
+        // Setting up basic controller stuff
+        self.title = "Crypt Pic"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named:"upload"), style: .plain, target: self, action: #selector(uploadImage))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named:"messages"), style: .plain, target: self, action: #selector(uploadImage))
+        self.navigationController?.navigationBar.tintColor = UIColor.black
+        
         key = String.randomString(length: 32)
         iv = String.randomString(length: 16)
         
@@ -44,6 +51,11 @@ class MainController: UIViewController, UIImagePickerControllerDelegate, UINavig
             let temp = try textView.text.aesEncrypt(key: key!, iv: iv!)
             cipher = temp
             self.cryptView?.text = cipher
+            if (textView.text.characters.count > 0) {
+                decodeButton?.isEnabled = true;
+            } else {
+                decodeButton?.isEnabled = false;
+            }
         } catch {
             print("Error Encrypting")
         }
@@ -60,6 +72,7 @@ class MainController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let truncatedCipher = cipherText?.substring(to: endIndex!)
         let identifier = cipherText?.substring(from:(cipherText?.index((cipherText?.endIndex)!, offsetBy: -5))!)
 
+//        myImageUploadRequest(image: image!)
         print("\(identifier!)")
 
         do {
@@ -68,6 +81,11 @@ class MainController: UIViewController, UIImagePickerControllerDelegate, UINavig
         } catch {
             print("Error Decrypting")
         }
+    }
+    
+    func uploadImage() {
+        let image = cryptView?.takeScreenShot()
+        myImageUploadRequest(image: image!)
     }
     
     @IBAction func takePictureWithCamera(sender: UIButton) {
@@ -153,6 +171,93 @@ class MainController: UIViewController, UIImagePickerControllerDelegate, UINavig
         // this method may be called from within animation blocks
         rootView.layoutIfNeeded()
     }
+    
+    func myImageUploadRequest(image: UIImage)
+    {
+        
+        let myUrl = NSURL(string: "https://frasertheking.com/crypt/upload.php");
+        
+        let request = NSMutableURLRequest(url:myUrl! as URL);
+        request.httpMethod = "POST";
+        
+        let param = [
+            "firstName"  : "Fraser",
+            "lastName"    : "King",
+            "userId"    : "0"
+        ]
+        
+        let boundary = generateBoundaryString()
+        
+        request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+        
+        
+        let imageData = UIImageJPEGRepresentation(image, 1)
+        
+        if(imageData==nil)  { return; }
+        
+        request.httpBody = createBodyWithParameters(parameters: param, filePathKey: "file", imageDataKey: imageData! as NSData, boundary: boundary) as Data
+        
+        let task = URLSession.shared.dataTask(with: request as URLRequest) {
+            data, response, error in
+            
+            if error != nil {
+                print("error=\(error)")
+                return
+            }
+            
+            // You can print out response object
+            print("******* response = \(response)")
+            
+            // Print out reponse body
+            let responseString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
+            print("****** response data = \(responseString!)")
+            
+            do {
+                let json = try JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary
+                
+                print("JSON: \(json)")
+                
+            }catch
+            {
+                print(error)
+            }
+            
+        }
+        
+        task.resume()
+    }
+    
+    
+    func createBodyWithParameters(parameters: [String: String]?, filePathKey: String?, imageDataKey: NSData, boundary: String) -> NSData {
+        let body = NSMutableData();
+        
+        if parameters != nil {
+            for (key, value) in parameters! {
+                body.appendString(string: "--\(boundary)\r\n")
+                body.appendString(string: "Content-Disposition: form-data; name=\"\(key)\"\r\n\r\n")
+                body.appendString(string: "\(value)\r\n")
+            }
+        }
+        
+        let filename = "cryptpic_\(UInt64(floor(NSDate().timeIntervalSince1970 * 1000))).jpg"
+        let mimetype = "image/jpg"
+        
+        body.appendString(string: "--\(boundary)\r\n")
+        body.appendString(string: "Content-Disposition: form-data; name=\"\(filePathKey!)\"; filename=\"\(filename)\"\r\n")
+        body.appendString(string: "Content-Type: \(mimetype)\r\n\r\n")
+        body.append(imageDataKey as Data)
+        body.appendString(string: "\r\n")
+        
+        body.appendString(string: "--\(boundary)--\r\n")
+        
+        return body
+    }
+    
+    
+    
+    func generateBoundaryString() -> String {
+        return "Boundary-\(NSUUID().uuidString)"
+    }
 }
 
 extension UIViewController {
@@ -166,3 +271,10 @@ extension UIViewController {
     }
 }
 
+extension NSMutableData {
+    
+    func appendString(string: String) {
+        let data = string.data(using: String.Encoding.utf8, allowLossyConversion: true)
+        append(data!)
+    }
+}
